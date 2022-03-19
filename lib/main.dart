@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
-  final tabs = [
+  final screens = [
     HomeScreen(),
     HistoryScreen(),
     AboutScreen(),
@@ -27,12 +27,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Spod',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: createMaterialColor(primaryColor),
       ),
       home: Scaffold(
-        appBar: AppBar(),
-        body: tabs[_currentIndex],
+        body: screens[_currentIndex],
         bottomNavigationBar: bottomNavComp(),
       ),
     );
@@ -41,17 +41,17 @@ class _MyAppState extends State<MyApp> {
   Widget bottomNavComp(){
     return BottomNavigationBar(
       currentIndex: _currentIndex,
-      selectedItemColor: colorWhite,
-      unselectedItemColor: colorWhite.withOpacity(0.5),
+      selectedItemColor: primaryColor,
+      unselectedItemColor: lightBlue400,
       showUnselectedLabels: false,
       showSelectedLabels: true,
-      backgroundColor: primaryColor,
       type: BottomNavigationBarType.fixed,
       onTap: (value){
         setState(() {
           _currentIndex = value;
         });
       },
+
       items: [
         BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -63,6 +63,12 @@ class _MyAppState extends State<MyApp> {
             icon: Icon(Icons.workspaces_filled),
             label: "About"),
       ],
+    );
+  }
+
+  Widget bottomNavBarItem(){
+    return Container(
+
     );
   }
 }
