@@ -4,10 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 const Color primaryColor = Color(0xff2083F8);
 const Color colorWhite = Colors.white;
 const Color lightBlue100 = Color(0xffF0F6FF);
-const Color lightBlue300 = Color(0xffD5DEEA);
+const Color lightBlue300 = Color(0xffD2DFF0);
 const Color lightBlue400 = Color(0xffBFC8D2);
 const Color darkBlue300 = Color(0xff526983);
 const Color darkBlue700 = Color(0xff17212B);
+
+const double borderRadiusSize = 16.0;
 
 TextStyle titleTextStyle = GoogleFonts.poppins(
     fontSize: 18, fontWeight: FontWeight.w700, color: darkBlue700);
@@ -31,7 +33,7 @@ TextStyle buttonTextStyle = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w600, color: colorWhite);
 
 TextStyle bottomNavTextStyle = GoogleFonts.poppins(
-    fontSize: 16, fontWeight: FontWeight.w600, color: darkBlue700);
+    fontSize: 14, fontWeight: FontWeight.w500, color: darkBlue700);
 
 MaterialColor createMaterialColor(Color color) {
   List strengths = <double>[.05];

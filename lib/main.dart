@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spod_app/theme.dart';
 
 import 'screen/about_screen.dart';
-import 'screen/history_screen.dart';
+import 'screen/transaction_history_screen.dart';
 import 'screen/home_screen.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class _SpodAppState extends State<SpodApp> {
   int _currentIndex = 0;
   final screens = [
     HomeScreen(),
-    HistoryScreen(),
+    TransactionHistoryScreen(),
     AboutScreen(),
   ];
 
@@ -121,32 +121,18 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         });
       },
       child: Container(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.symmetric(vertical: 16),
         child: _selectedIndex == index
-            ? Container(
-          padding: const EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-            color: lightBlue100,
-            borderRadius: BorderRadius.circular(18)
-          ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      activeIcon,
-                      width: 24,
-                      height: 24,
-                      color: primaryColor,
-                    ),
-                    const SizedBox(width: 8,),
-                    Text(label, style: bottomNavTextStyle.copyWith(color: primaryColor),)
-                  ],
-                ),
+            ? Image.asset(
+              activeIcon,
+              width: 26,
+              height: 26,
+              color: primaryColor,
             )
             : Image.asset(
                 inactiveIcon,
-                width: 24,
-                height: 24,
+                width: 26,
+                height: 26,
                 color: lightBlue400,
               ),
       ),
