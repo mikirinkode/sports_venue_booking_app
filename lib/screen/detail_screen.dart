@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../theme.dart';
-import '../widget/facility_widget.dart';
+import '../widget/facility_card.dart';
 
 class DetailScreen extends StatelessWidget {
   @override
@@ -130,21 +130,21 @@ class DetailScreen extends StatelessWidget {
                           childAspectRatio: (1 / 1),
                           shrinkWrap: true,
                           children: [
-                            FacilityWidget(
+                            FacilityCard(
                                 imageIcon: "assets/icons/wifi.png", name: "Wifi"),
-                            FacilityWidget(
+                            FacilityCard(
                                 imageIcon: "assets/icons/toilet.png",
                                 name: "Toilet"),
-                            FacilityWidget(
+                            FacilityCard(
                                 imageIcon: "assets/icons/changing_room.png",
                                 name: "Changing Room"),
-                            FacilityWidget(
+                            FacilityCard(
                                 imageIcon: "assets/icons/canteen.png",
                                 name: "Canteen"),
-                            FacilityWidget(
+                            FacilityCard(
                                 imageIcon: "assets/icons/lockers.png",
                                 name: "Lockers"),
-                            FacilityWidget(
+                            FacilityCard(
                                 imageIcon: "assets/icons/charging.png",
                                 name: "Charging"),
                           ],
@@ -200,7 +200,7 @@ class DetailScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(100, 45),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16))
+                    borderRadius: BorderRadius.circular(borderRadiusSize))
                 ),
                   onPressed: () {
               }, child: Text("Book Now")),

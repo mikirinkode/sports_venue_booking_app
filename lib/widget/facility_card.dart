@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../theme.dart';
 
-class FacilityWidget extends StatefulWidget {
+class FacilityCard extends StatefulWidget {
   String imageIcon;
   String name;
 
-  FacilityWidget({required this.imageIcon, required this.name});
+  FacilityCard({required this.imageIcon, required this.name});
 
   @override
-  State<FacilityWidget> createState() => _FacilityWidgetState();
+  State<FacilityCard> createState() => _FacilityCardState();
 }
 
-class _FacilityWidgetState extends State<FacilityWidget> {
+class _FacilityCardState extends State<FacilityCard> {
   bool showName = false;
 
   @override
@@ -31,22 +31,19 @@ class _FacilityWidgetState extends State<FacilityWidget> {
         child: Center(
           child: Container(
             padding: EdgeInsets.all(4.0),
-            // decoration: BoxDecoration(
-            //     color: lightBlue100, borderRadius: BorderRadius.circular(16)),
             child: Center(
-              child: !showName ?
-              Image.asset(
-                widget.imageIcon,
-                width: 30,
-                height: 30,
-                color: primaryColor,
-              )
+              child: !showName
+                  ? Image.asset(
+                      widget.imageIcon,
+                      width: 30,
+                      height: 30,
+                      color: primaryColor,
+                    )
                   : Text(
-                widget.name,
-                style: facilityTextStyle,
-                textAlign: TextAlign.center,
-              ),
-
+                      widget.name,
+                      style: facilityTextStyle,
+                      textAlign: TextAlign.center,
+                    ),
             ),
           ),
         ),
