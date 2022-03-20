@@ -6,16 +6,15 @@ import 'screen/history_screen.dart';
 import 'screen/home_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(SpodApp());
 }
 
-class MyApp extends StatefulWidget {
-
+class SpodApp extends StatefulWidget {
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<SpodApp> createState() => _SpodAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _SpodAppState extends State<SpodApp> {
   int _currentIndex = 0;
   final screens = [
     HomeScreen(),
@@ -32,43 +31,125 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: createMaterialColor(primaryColor),
       ),
       home: Scaffold(
+        backgroundColor: lightBlue100,
         body: screens[_currentIndex],
-        bottomNavigationBar: bottomNavComp(),
+        bottomNavigationBar: CustomBottomNavBar(
+          selectedItemIcon: const [
+            "assets/icons/home_fill.png",
+            "assets/icons/receipt_fill.png",
+            "assets/icons/about_fill.png"
+          ],
+          unselectedItemIcon: const [
+            "assets/icons/home_outlined.png",
+            "assets/icons/receipt_outlined.png",
+            "assets/icons/about_outlined.png"
+          ],
+          label: const[
+            "Home",
+            "Transactions",
+            "About"
+          ],
+          onChange: (val) {
+            setState(() {
+              _currentIndex = val;
+            });
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class CustomBottomNavBar extends StatefulWidget {
+  final int defaultSelectedIndex;
+  final List<String> selectedItemIcon;
+  final List<String> unselectedItemIcon;
+  final List<String> label;
+  final Function(int) onChange;
+
+  const CustomBottomNavBar(
+      {this.defaultSelectedIndex = 0,
+      required this.selectedItemIcon,
+      required this.unselectedItemIcon,
+      required this.label,
+      required this.onChange});
+
+  @override
+  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
+}
+
+class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
+  int _selectedIndex = 0;
+  List<String> _selectedItemIcon = [];
+  List<String> _unselectedItemIcon = [];
+  List<String> _label = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.defaultSelectedIndex;
+    _selectedItemIcon = widget.selectedItemIcon;
+    _unselectedItemIcon = widget.unselectedItemIcon;
+    _label = widget.label;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> _navBarItems = [];
+
+    for (int i = 0; i < 3; i++) {
+      _navBarItems.add(
+          bottomNavBarItem(_selectedItemIcon[i], _unselectedItemIcon[i], _label[i], i));
+    }
+    return Container(
+      decoration: const BoxDecoration(
+          color: colorWhite,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(18))),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: _navBarItems,
       ),
     );
   }
 
-  Widget bottomNavComp(){
-    return BottomNavigationBar(
-      currentIndex: _currentIndex,
-      selectedItemColor: primaryColor,
-      unselectedItemColor: lightBlue400,
-      showUnselectedLabels: false,
-      showSelectedLabels: true,
-      type: BottomNavigationBarType.fixed,
-      onTap: (value){
+  Widget bottomNavBarItem(activeIcon, inactiveIcon, label, index) {
+    return GestureDetector(
+      onTap: () {
+        widget.onChange(index);
         setState(() {
-          _currentIndex = value;
+          _selectedIndex = index;
         });
       },
-
-      items: [
-        BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home"),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: "History"),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.workspaces_filled),
-            label: "About"),
-      ],
-    );
-  }
-
-  Widget bottomNavBarItem(){
-    return Container(
-
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        child: _selectedIndex == index
+            ? Container(
+          padding: const EdgeInsets.all(8.0),
+          decoration: BoxDecoration(
+            color: lightBlue100,
+            borderRadius: BorderRadius.circular(18)
+          ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      activeIcon,
+                      width: 24,
+                      height: 24,
+                      color: primaryColor,
+                    ),
+                    const SizedBox(width: 8,),
+                    Text(label, style: bottomNavTextStyle.copyWith(color: primaryColor),)
+                  ],
+                ),
+            )
+            : Image.asset(
+                inactiveIcon,
+                width: 24,
+                height: 24,
+                color: lightBlue400,
+              ),
+      ),
     );
   }
 }

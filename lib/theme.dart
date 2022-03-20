@@ -10,16 +10,10 @@ const Color darkBlue300 = Color(0xff526983);
 const Color darkBlue700 = Color(0xff17212B);
 
 TextStyle titleTextStyle = GoogleFonts.poppins(
-  fontSize: 18,
-  fontWeight: FontWeight.w700,
-  color: darkBlue700
-);
+    fontSize: 18, fontWeight: FontWeight.w700, color: darkBlue700);
 
 TextStyle subTitleTextStyle = GoogleFonts.poppins(
-  fontSize: 16,
-  fontWeight: FontWeight.w500,
-    color: darkBlue700
-);
+    fontSize: 16, fontWeight: FontWeight.w500, color: darkBlue700);
 
 TextStyle descTextStyle = GoogleFonts.poppins(
     fontSize: 14, fontWeight: FontWeight.w400, color: darkBlue300);
@@ -28,11 +22,16 @@ TextStyle addressTextStyle = GoogleFonts.poppins(
     fontSize: 14, fontWeight: FontWeight.w400, color: darkBlue300);
 
 TextStyle facilityTextStyle = GoogleFonts.poppins(
-    fontSize: 10, fontWeight: FontWeight.w500, color: darkBlue300);
+    fontSize: 13, fontWeight: FontWeight.w500, color: darkBlue300);
 
 TextStyle priceTextStyle = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w700, color: darkBlue700);
 
+TextStyle buttonTextStyle = GoogleFonts.poppins(
+    fontSize: 16, fontWeight: FontWeight.w600, color: colorWhite);
+
+TextStyle bottomNavTextStyle = GoogleFonts.poppins(
+    fontSize: 16, fontWeight: FontWeight.w600, color: darkBlue700);
 
 MaterialColor createMaterialColor(Color color) {
   List strengths = <double>[.05];
