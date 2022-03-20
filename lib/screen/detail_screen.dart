@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:spod_app/model/sport_field.dart';
 import '../theme.dart';
 import '../widget/facility_card.dart';
 
 class DetailScreen extends StatelessWidget {
+  SportField field;
+
+  DetailScreen({required this.field});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +20,7 @@ class DetailScreen extends StatelessWidget {
               color: darkBlue300,
             ),
             child: Image.asset(
-              "assets/images/pringsewu_futsal.jpg",
+              field.imageAsset,
               width: MediaQuery.of(context).size.width,
               height: 300,
               fit: BoxFit.cover,
@@ -38,7 +43,7 @@ class DetailScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Pringsewu Futsal",
+                          field.name,
                           style: titleTextStyle,
                         ),
                         SizedBox(
@@ -58,7 +63,7 @@ class DetailScreen extends StatelessWidget {
                             ),
                             Flexible(
                               child: Text(
-                                "Jln. Jendral Sudirman no.31",
+                                field.address,
                                 overflow: TextOverflow.visible,
                                 style: addressTextStyle,
                               ),
@@ -68,26 +73,32 @@ class DetailScreen extends StatelessWidget {
                         SizedBox(
                           height: 32,
                         ),
-                        Text(
-                          "Availability:",
-                          style: subTitleTextStyle,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Availability:",
+                              style: subTitleTextStyle,
+                            ),
+                            TextButton(
+                                onPressed: () {},
+                                child: Text("See Availability"))
+                          ],
                         ),
                         SizedBox(
                           height: 16,
                         ),
                         Row(
                           children: [
-                            Image.asset(
-                              "assets/icons/date.png",
-                              width: 21,
-                              height: 21,
+                            Icon(
+                              Icons.date_range_rounded,
                               color: primaryColor,
                             ),
                             SizedBox(
                               width: 16.0,
                             ),
                             Text(
-                              "Sunday to Saturday",
+                              field.openDay,
                               style: descTextStyle,
                             ),
                           ],
@@ -97,17 +108,15 @@ class DetailScreen extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Image.asset(
-                              "assets/icons/clock.png",
-                              width: 20,
-                              height: 20,
+                            Icon(
+                              Icons.access_time_rounded,
                               color: primaryColor,
                             ),
                             SizedBox(
                               width: 16.0,
                             ),
                             Text(
-                              "09.00 - 17.00",
+                              field.openTime,
                               style: descTextStyle,
                             ),
                           ],
@@ -122,33 +131,7 @@ class DetailScreen extends StatelessWidget {
                         SizedBox(
                           height: 16,
                         ),
-                        GridView.count(
-                          crossAxisCount: 4,
-                          physics: const ClampingScrollPhysics(),
-                          mainAxisSpacing: 16,
-                          crossAxisSpacing: 16,
-                          childAspectRatio: (1 / 1),
-                          shrinkWrap: true,
-                          children: [
-                            FacilityCard(
-                                imageIcon: "assets/icons/wifi.png", name: "Wifi"),
-                            FacilityCard(
-                                imageIcon: "assets/icons/toilet.png",
-                                name: "Toilet"),
-                            FacilityCard(
-                                imageIcon: "assets/icons/changing_room.png",
-                                name: "Changing Room"),
-                            FacilityCard(
-                                imageIcon: "assets/icons/canteen.png",
-                                name: "Canteen"),
-                            FacilityCard(
-                                imageIcon: "assets/icons/lockers.png",
-                                name: "Lockers"),
-                            FacilityCard(
-                                imageIcon: "assets/icons/charging.png",
-                                name: "Charging"),
-                          ],
-                        )
+                        FacilityCardList(facilities: field.facilities)
                       ],
                     ),
                   ),
@@ -163,9 +146,14 @@ class DetailScreen extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     backgroundColor: colorWhite,
-                    child: IconButton(onPressed: (){
-                      Navigator.pop(context);
-                    }, icon: Icon(Icons.arrow_back, color: darkBlue700,)),
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: darkBlue700,
+                        )),
                   )
                 ],
               ),
@@ -178,7 +166,7 @@ class DetailScreen extends StatelessWidget {
         decoration: BoxDecoration(color: Colors.white, boxShadow: [
           BoxShadow(
             color: lightBlue300,
-            offset: Offset(0,0),
+            offset: Offset(0, 0),
             blurRadius: 10,
           ),
         ]),
@@ -189,21 +177,28 @@ class DetailScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Price / hour", style: descTextStyle,),
-                Text("Rp. 50.000",
-                style: priceTextStyle,),
+                Text(
+                  "Price / hour",
+                  style: descTextStyle,
+                ),
+                Text(
+                  "Rp. 50.000",
+                  style: priceTextStyle,
+                ),
               ],
             ),
-            SizedBox(width: 24,),
+            SizedBox(
+              width: 24,
+            ),
             Expanded(
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: Size(100, 45),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(borderRadiusSize))
-                ),
-                  onPressed: () {
-              }, child: Text("Book Now")),
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(100, 45),
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(borderRadiusSize))),
+                  onPressed: () {},
+                  child: Text("Book Now")),
             )
           ],
         ),

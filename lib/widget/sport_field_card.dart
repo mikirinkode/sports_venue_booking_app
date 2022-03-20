@@ -14,7 +14,7 @@ class SportFieldCard extends StatelessWidget {
     return InkWell(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context){
-          return DetailScreen();
+          return DetailScreen(field: field,);
         }));
       },
       child: Padding(

@@ -1,6 +1,30 @@
+
 import 'package:flutter/material.dart';
+import 'package:spod_app/model/field_facility.dart';
 
 import '../theme.dart';
+
+class FacilityCardList extends StatelessWidget{
+  List<FieldFacility> facilities;
+
+  FacilityCardList({required this.facilities});
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      crossAxisCount: 4,
+      physics: const ClampingScrollPhysics(),
+      mainAxisSpacing: 16,
+      crossAxisSpacing: 16,
+      childAspectRatio: (1 / 1),
+      shrinkWrap: true,
+      children: facilities.map((facility) {
+        return FacilityCard(name: facility.name, imageIcon: facility.imageAsset);
+      }).toList(),
+    );
+  }
+
+}
 
 class FacilityCard extends StatefulWidget {
   String imageIcon;
@@ -34,16 +58,16 @@ class _FacilityCardState extends State<FacilityCard> {
             child: Center(
               child: !showName
                   ? Image.asset(
-                      widget.imageIcon,
-                      width: 30,
-                      height: 30,
-                      color: primaryColor,
-                    )
+                widget.imageIcon,
+                width: 30,
+                height: 30,
+                color: primaryColor,
+              )
                   : Text(
-                      widget.name,
-                      style: facilityTextStyle,
-                      textAlign: TextAlign.center,
-                    ),
+                widget.name,
+                style: facilityTextStyle,
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ),

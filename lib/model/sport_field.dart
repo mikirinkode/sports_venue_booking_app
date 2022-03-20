@@ -1,6 +1,11 @@
+import 'package:spod_app/model/sport_category.dart';
+import 'package:spod_app/model/field_facility.dart';
+
 class SportField {
   String id;
   String name;
+  SportCategory category;
+  List<FieldFacility> facilities;
   String address;
   String author;
   String phoneNumber;
@@ -12,6 +17,8 @@ class SportField {
   SportField(
       {required this.id,
       required this.name,
+      required this.category,
+      required this.facilities,
       required this.address,
       required this.author,
       required this.phoneNumber,
