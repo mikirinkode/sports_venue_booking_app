@@ -81,7 +81,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CircleAvatar(
-                backgroundColor: lightBlue100, child: Icon(Icons.person)),
+                backgroundColor: lightBlue100, child: Image.asset("assets/images/user.png", color: primaryColor, width: 24, height: 24,)),
             IconButton(
               iconSize: 30,
               onPressed: () {
