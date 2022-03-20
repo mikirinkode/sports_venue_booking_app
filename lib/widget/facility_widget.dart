@@ -30,7 +30,7 @@ class _FacilityWidgetState extends State<FacilityWidget> {
         },
         child: Center(
           child: Container(
-            padding: EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(4.0),
             // decoration: BoxDecoration(
             //     color: lightBlue100, borderRadius: BorderRadius.circular(16)),
             child: Center(
