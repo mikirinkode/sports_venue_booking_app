@@ -57,20 +57,6 @@ List<SportField> sportFieldList = [
 
   SportField(
       id: "02",
-      name: "DC Tennis Court",
-      address: "Jln. Kartanegara no 76",
-      category: _tennis,
-      facilities: [_wifi, _toilet, _locker],
-      author: "Denise chan",
-      phoneNumber: "0811 2222 3333",
-      openDay: "Monday to Saturday",
-      openTime: "08.00 – 17.00",
-      imageAsset: "assets/images/dc_tennis_court.jpg",
-      price: 65000
-  ),
-
-  SportField(
-      id: "03",
       name: "Vio Sport Center",
       address: "Jln.  Tanah Agung no. 12",
       category: _basketball,
@@ -81,6 +67,20 @@ List<SportField> sportFieldList = [
       openTime: "07.00 – 22.00",
       imageAsset: "assets/images/vio_basketball.jpg",
       price: 100000
+  ),
+
+  SportField(
+      id: "03",
+      name: "Voli Pantai Tanjung",
+      address: "Jln. Tanjung Tinggi no. 9",
+      category: _volley,
+      facilities: [_wifi, _toilet, _canteen, _chargingArea, _changingRoom],
+      author: "Meritt Thomas",
+      phoneNumber: "0866 7777 8888",
+      openDay: "Monday to Sunday",
+      openTime: "07.00 – 17.00",
+      imageAsset: "assets/images/voli_pantai.jpg",
+      price: 115000
   ),
 
   SportField(
@@ -128,16 +128,16 @@ List<SportField> sportFieldList = [
 
   SportField(
       id: "07",
-      name: "Voli Pantai Tanjung",
-      address: "Jln. Tanjung Tinggi no. 9",
-      category: _volley,
-      facilities: [_wifi, _toilet, _canteen, _chargingArea, _changingRoom],
-      author: "Meritt Thomas",
-      phoneNumber: "0866 7777 8888",
-      openDay: "Monday to Sunday",
-      openTime: "07.00 – 17.00",
-      imageAsset: "assets/images/voli_pantai.jpg",
-      price: 115000
+      name: "DC Tennis Court",
+      address: "Jln. Kartanegara no 76",
+      category: _tennis,
+      facilities: [_wifi, _toilet, _locker],
+      author: "Denise chan",
+      phoneNumber: "0811 2222 3333",
+      openDay: "Monday to Saturday",
+      openTime: "08.00 – 17.00",
+      imageAsset: "assets/images/dc_tennis_court.jpg",
+      price: 65000
   ),
 
   SportField(
