@@ -26,7 +26,7 @@ class DetailScreen extends StatelessWidget {
                       "assets/icons/pin.png",
                       width: 24,
                       height: 24,
-                      color: primaryColor,
+                      color: primaryColor500,
                     ),
                     SizedBox(
                       width: 16.0,
@@ -44,7 +44,7 @@ class DetailScreen extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(Icons.phone, color: primaryColor,),
+                    Icon(Icons.phone, color: primaryColor500,),
                     SizedBox(
                       width: 16.0,
                     ),
@@ -61,7 +61,7 @@ class DetailScreen extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(Icons.account_circle_rounded, color: primaryColor,),
+                    Icon(Icons.account_circle_rounded, color: primaryColor500,),
                     SizedBox(
                       width: 16.0,
                     ),
@@ -94,7 +94,7 @@ class DetailScreen extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.date_range_rounded,
-                      color: primaryColor,
+                      color: primaryColor500,
                     ),
                     SizedBox(
                       width: 16.0,
@@ -112,7 +112,7 @@ class DetailScreen extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.access_time_rounded,
-                      color: primaryColor,
+                      color: primaryColor500,
                     ),
                     SizedBox(
                       width: 16.0,
@@ -183,7 +183,7 @@ class DetailScreen extends StatelessWidget {
 
   Widget customSliverAppBar(context, field) {
     return SliverAppBar(
-      shadowColor: primaryColor.withOpacity(.2),
+      shadowColor: primaryColor500.withOpacity(.2),
       backgroundColor: colorWhite,
       // floating: true,
       pinned: true,

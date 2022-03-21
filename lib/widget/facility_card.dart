@@ -61,7 +61,7 @@ class _FacilityCardState extends State<FacilityCard> {
                 widget.imageIcon,
                 width: 30,
                 height: 30,
-                color: primaryColor,
+                color: primaryColor500,
               )
                   : Text(
                 widget.name,

@@ -22,65 +22,56 @@ class SportFieldCard extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.0), color: colorWhite),
-          child: Stack(
+          child: Column(
             // mainAxisSize: MainAxisSize.min,
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
                 borderRadius:
-                BorderRadius.circular(borderRadiusSize),
+                BorderRadius.vertical(top: Radius.circular(borderRadiusSize)),
                 child: Image.asset(field.imageAsset,
                     height: 200,
                     width: MediaQuery.of(context).size.width,
                     fit: BoxFit.cover),
               ),
-              Positioned.fill(
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Container(
-                    padding: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(borderRadiusSize)),
-                      color: darkBlue700.withOpacity(0.7),
+              Container(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      field.name,
+                      maxLines: 2,
+                      style: subTitleTextStyle,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    child: Column(
+                    SizedBox(
+                      height: 8.0,
+                    ),
+                    Row(
                       mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text(
-                          field.name,
-                          maxLines: 2,
-                          style: subTitleTextStyle.copyWith(color: colorWhite),
-                          overflow: TextOverflow.ellipsis,
+                        Image.asset(
+                          "assets/icons/pin.png",
+                          width: 20,
+                          height: 20,
+                          color: primaryColor500,
                         ),
                         SizedBox(
-                          height: 8.0,
+                          width: 8.0,
                         ),
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Image.asset(
-                              "assets/icons/pin.png",
-                              width: 20,
-                              height: 20,
-                              color: primaryColor,
-                            ),
-                            SizedBox(
-                              width: 8.0,
-                            ),
-                            Flexible(
-                              child: Text(
-                                field.address,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: addressTextStyle.copyWith(color: lightBlue100),
-                              ),
-                            ),
-                          ],
+                        Flexible(
+                          child: Text(
+                            field.address,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: addressTextStyle,
+                          ),
                         ),
                       ],
                     ),
-                  ),
+                  ],
                 ),
               )
             ],

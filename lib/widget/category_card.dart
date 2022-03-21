@@ -39,9 +39,9 @@ class CategoryCard extends StatelessWidget {
         color: colorWhite,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: InkWell(
-          highlightColor: primaryColor.withOpacity(0.1),
+          highlightColor: primaryColor500.withOpacity(0.1),
           borderRadius: BorderRadius.circular(16),
-          splashColor: primaryColor.withOpacity(0.5),
+          splashColor: primaryColor500.withOpacity(0.5),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return SearchScreen();
@@ -54,11 +54,15 @@ class CategoryCard extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Image.asset(
-                    imageAsset,
-                    color: primaryColor,
-                    width: 50,
-                    height: 50,
+                  child: CircleAvatar(
+                    radius: 30,
+                    backgroundColor: primaryColor100,
+                    child: Image.asset(
+                      imageAsset,
+                      color: primaryColor500,
+                      width: 50,
+                      height: 50,
+                    ),
                   ),
                 ),
                 SizedBox(

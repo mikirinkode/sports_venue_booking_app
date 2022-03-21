@@ -35,7 +35,7 @@ class TransactionHistoryScreen extends StatelessWidget {
           TextButton.icon(
               onPressed: () {},
               icon: Icon(Icons.search),
-              label: Text("Search a Field", style: buttonTextStyle.copyWith(color: primaryColor),))
+              label: Text("Search a Field", style: buttonTextStyle.copyWith(color: primaryColor500),))
     ],
     ),
         ),
