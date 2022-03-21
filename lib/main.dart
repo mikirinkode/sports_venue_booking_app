@@ -6,15 +6,32 @@ import 'screen/transaction_history_screen.dart';
 import 'screen/home_screen.dart';
 
 void main() {
-  runApp(SpodApp());
+  runApp(MyApp());
 }
 
-class SpodApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
+
   @override
-  State<SpodApp> createState() => _SpodAppState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Spod',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primarySwatch: createMaterialColor(primaryColor500),
+          canvasColor: colorWhite),
+      home: MainScreen(),
+    );
+  }
 }
 
-class _SpodAppState extends State<SpodApp> {
+
+class MainScreen extends StatefulWidget {
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+
+class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   final screens = [
     HomeScreen(),
@@ -24,13 +41,7 @@ class _SpodAppState extends State<SpodApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Spod',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primarySwatch: createMaterialColor(primaryColor),
-          canvasColor: colorWhite),
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: lightBlue100,
         body: screens[_currentIndex],
         bottomNavigationBar: CustomBottomNavBar(
@@ -51,8 +62,7 @@ class _SpodAppState extends State<SpodApp> {
             });
           },
         ),
-      ),
-    );
+      );
   }
 }
 
@@ -117,35 +127,33 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           _selectedIndex = index;
         });
       },
-      child: Expanded(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width / _selectedItemIcon.length,
-          child: _selectedIndex == index
-              ? Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: Image.asset(
-                          activeIcon,
-                          width: 26,
-                          height: 26,
-                          color: primaryColor,
-                        ),
+      child: Container(
+        width: MediaQuery.of(context).size.width / _selectedItemIcon.length,
+        child: _selectedIndex == index
+            ? Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Image.asset(
+                        activeIcon,
+                        width: 26,
+                        height: 26,
+                        color: primaryColor500,
                       ),
-                      Text(label, style: bottomNavTextStyle,)
-                    ],
-                  ),
-                )
-              : Image.asset(
-                  inactiveIcon,
-                  width: 26,
-                  height: 26,
-                  color: lightBlue400,
+                    ),
+                    Text(label, style: bottomNavTextStyle,)
+                  ],
                 ),
-        ),
+              )
+            : Image.asset(
+                inactiveIcon,
+                width: 26,
+                height: 26,
+                color: primaryColor300,
+              ),
       ),
     );
   }
