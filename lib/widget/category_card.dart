@@ -52,11 +52,14 @@ class CategoryCard extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                Image.asset(
-                  imageAsset,
-                  color: primaryColor,
-                  width: 30,
-                  height: 30,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Image.asset(
+                    imageAsset,
+                    color: primaryColor,
+                    width: 50,
+                    height: 50,
+                  ),
                 ),
                 SizedBox(
                   height: 8.0,
