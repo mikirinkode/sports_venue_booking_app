@@ -28,9 +28,8 @@ class _SpodAppState extends State<SpodApp> {
       title: 'Spod',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: createMaterialColor(primaryColor),
-        canvasColor: colorWhite
-      ),
+          primarySwatch: createMaterialColor(primaryColor),
+          canvasColor: colorWhite),
       home: Scaffold(
         backgroundColor: lightBlue100,
         body: screens[_currentIndex],
@@ -45,11 +44,7 @@ class _SpodAppState extends State<SpodApp> {
             "assets/icons/receipt_outlined.png",
             "assets/icons/about_outlined.png"
           ],
-          label: const[
-            "Home",
-            "Transactions",
-            "About"
-          ],
+          label: const ["Home", "Transactions", "About"],
           onChange: (val) {
             setState(() {
               _currentIndex = val;
@@ -99,14 +94,15 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     List<Widget> _navBarItems = [];
 
     for (int i = 0; i < 3; i++) {
-      _navBarItems.add(
-          bottomNavBarItem(_selectedItemIcon[i], _unselectedItemIcon[i], _label[i], i));
+      _navBarItems.add(bottomNavBarItem(
+          _selectedItemIcon[i], _unselectedItemIcon[i], _label[i], i));
     }
     return Container(
       decoration: const BoxDecoration(
           color: colorWhite,
           borderRadius: BorderRadius.vertical(top: Radius.circular(18))),
       child: Row(
+        mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: _navBarItems,
       ),
@@ -121,21 +117,35 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           _selectedIndex = index;
         });
       },
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        child: _selectedIndex == index
-            ? Image.asset(
-              activeIcon,
-              width: 26,
-              height: 26,
-              color: primaryColor,
-            )
-            : Image.asset(
-                inactiveIcon,
-                width: 26,
-                height: 26,
-                color: lightBlue400,
-              ),
+      child: Expanded(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width / _selectedItemIcon.length,
+          child: _selectedIndex == index
+              ? Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Image.asset(
+                          activeIcon,
+                          width: 26,
+                          height: 26,
+                          color: primaryColor,
+                        ),
+                      ),
+                      Text(label, style: bottomNavTextStyle,)
+                    ],
+                  ),
+                )
+              : Image.asset(
+                  inactiveIcon,
+                  width: 26,
+                  height: 26,
+                  color: lightBlue400,
+                ),
+        ),
       ),
     );
   }

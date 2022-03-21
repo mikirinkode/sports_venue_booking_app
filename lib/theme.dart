@@ -33,7 +33,7 @@ TextStyle buttonTextStyle = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w600, color: colorWhite);
 
 TextStyle bottomNavTextStyle = GoogleFonts.poppins(
-    fontSize: 14, fontWeight: FontWeight.w500, color: darkBlue700);
+    fontSize: 14, fontWeight: FontWeight.w500, color: primaryColor);
 
 MaterialColor createMaterialColor(Color color) {
   List strengths = <double>[.05];
