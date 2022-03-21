@@ -1,4 +1,4 @@
-package com.example.spod_app
+package com.mikirinkode.spod_app
 
 import io.flutter.embedding.android.FlutterActivity
 
