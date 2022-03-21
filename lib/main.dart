@@ -29,6 +29,7 @@ class _SpodAppState extends State<SpodApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: createMaterialColor(primaryColor),
+        canvasColor: colorWhite
       ),
       home: Scaffold(
         backgroundColor: lightBlue100,
