@@ -27,10 +27,10 @@ var _tennis = SportCategory(
 
 List<SportCategory> sportCategories = [
   _basketball,
-  _futsal,
+  _tennis,
   _volley,
+  _futsal,
   _tableTennis,
-  _tennis
 ];
 
 var _wifi = FieldFacility(name: "WiFi", imageAsset: "assets/icons/wifi.png");
