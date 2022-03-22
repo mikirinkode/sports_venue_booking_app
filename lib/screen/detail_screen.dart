@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:spod_app/model/sport_field.dart';
 import '../theme.dart';
 import '../widget/facility_card.dart';
@@ -40,11 +41,16 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 16,),
+                SizedBox(
+                  height: 16,
+                ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(Icons.phone, color: primaryColor500,),
+                    Icon(
+                      Icons.phone,
+                      color: primaryColor500,
+                    ),
                     SizedBox(
                       width: 16.0,
                     ),
@@ -57,11 +63,16 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 16,),
+                SizedBox(
+                  height: 16,
+                ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(Icons.account_circle_rounded, color: primaryColor500,),
+                    Icon(
+                      Icons.account_circle_rounded,
+                      color: primaryColor500,
+                    ),
                     SizedBox(
                       width: 16.0,
                     ),
@@ -84,7 +95,8 @@ class DetailScreen extends StatelessWidget {
                       "Availability:",
                       style: subTitleTextStyle,
                     ),
-                    TextButton(onPressed: () {}, child: Text("See Availability"))
+                    TextButton(
+                        onPressed: () {}, child: Text("See Availability"))
                   ],
                 ),
                 SizedBox(
@@ -185,7 +197,10 @@ class DetailScreen extends StatelessWidget {
     return SliverAppBar(
       shadowColor: primaryColor500.withOpacity(.2),
       backgroundColor: colorWhite,
-      // floating: true,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: colorWhite,
+        statusBarIconBrightness: Brightness.dark,
+      ),
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
@@ -195,9 +210,9 @@ class DetailScreen extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: kToolbarHeight,
           decoration: BoxDecoration(
-          color: colorWhite,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(borderRadiusSize))
-          ),
+              color: colorWhite,
+              borderRadius: BorderRadius.vertical(
+                  top: Radius.circular(borderRadiusSize))),
           child: Center(
             child: Text(
               field.name,
@@ -215,8 +230,8 @@ class DetailScreen extends StatelessWidget {
       leading: Container(
         decoration: BoxDecoration(
             color: colorWhite,
-            borderRadius: BorderRadius.horizontal(
-                right: Radius.circular(borderRadiusSize))),
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(borderRadiusSize))),
         child: IconButton(
             onPressed: () {
               Navigator.pop(context);

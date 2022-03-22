@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:spod_app/theme.dart';
 
 import 'screen/about_screen.dart';
@@ -10,7 +11,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,12 +24,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class MainScreen extends StatefulWidget {
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
-
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
@@ -42,27 +40,34 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: lightBlue100,
-        body: screens[_currentIndex],
-        bottomNavigationBar: CustomBottomNavBar(
-          selectedItemIcon: const [
-            "assets/icons/home_fill.png",
-            "assets/icons/receipt_fill.png",
-            "assets/icons/about_fill.png"
-          ],
-          unselectedItemIcon: const [
-            "assets/icons/home_outlined.png",
-            "assets/icons/receipt_outlined.png",
-            "assets/icons/about_outlined.png"
-          ],
-          label: const ["Home", "Transactions", "About"],
-          onChange: (val) {
-            setState(() {
-              _currentIndex = val;
-            });
-          },
-        ),
-      );
+      appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 0,
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: lightBlue100,
+            statusBarIconBrightness: Brightness.dark),
+      ),
+      backgroundColor: lightBlue100,
+      body: screens[_currentIndex],
+      bottomNavigationBar: CustomBottomNavBar(
+        selectedItemIcon: const [
+          "assets/icons/home_fill.png",
+          "assets/icons/receipt_fill.png",
+          "assets/icons/about_fill.png"
+        ],
+        unselectedItemIcon: const [
+          "assets/icons/home_outlined.png",
+          "assets/icons/receipt_outlined.png",
+          "assets/icons/about_outlined.png"
+        ],
+        label: const ["Home", "Transactions", "About"],
+        onChange: (val) {
+          setState(() {
+            _currentIndex = val;
+          });
+        },
+      ),
+    );
   }
 }
 
@@ -144,7 +149,10 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                         color: primaryColor500,
                       ),
                     ),
-                    Text(label, style: bottomNavTextStyle,)
+                    Text(
+                      label,
+                      style: bottomNavTextStyle,
+                    )
                   ],
                 ),
               )

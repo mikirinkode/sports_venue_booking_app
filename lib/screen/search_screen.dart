@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../theme.dart';
 
@@ -8,7 +9,10 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: primaryColor500,
+            statusBarIconBrightness: Brightness.light
+        ),
         actions: [
           IconButton(onPressed: (){}, icon: Icon(Icons.filter_alt_outlined))
         ],
