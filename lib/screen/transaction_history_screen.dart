@@ -1,16 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:spod_app/screen/search_screen.dart';
 
 import '../theme.dart';
 
 class TransactionHistoryScreen extends StatelessWidget {
-  const TransactionHistoryScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: lightBlue100,
-        body: noTransaction(context));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DefaultTabController(
+        initialIndex: 0,
+        length: 2,
+        child: Scaffold(
+          backgroundColor: lightBlue100,
+          appBar: AppBar(
+            toolbarHeight: kTextTabBarHeight,
+            title: Text(
+              "Transaction",
+              style: titleTextStyle,
+            ),
+            backgroundColor: lightBlue100,
+            elevation: 0.0,
+            centerTitle: true,
+            bottom: TabBar(
+              labelStyle: tabBarTextStyle,
+              labelColor: primaryColor500,
+              unselectedLabelColor: darkBlue300,
+              indicatorColor: primaryColor500,
+              tabs: [
+                Tab(
+                  text: "Order",
+                ),
+                Tab(
+                  text: "History",
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Widget noTransaction(context) {
@@ -40,7 +71,11 @@ class TransactionHistoryScreen extends StatelessWidget {
               height: 32.0,
             ),
             TextButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return SearchScreen();
+                  }));
+                },
                 icon: Icon(Icons.search),
                 label: Text(
                   "Search a Field",

@@ -39,7 +39,11 @@ TextStyle buttonTextStyle = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w600, color: colorWhite);
 
 TextStyle bottomNavTextStyle = GoogleFonts.poppins(
-    fontSize: 14, fontWeight: FontWeight.w500, color: primaryColor500);
+    fontSize: 12, fontWeight: FontWeight.w500, color: primaryColor500);
+
+TextStyle tabBarTextStyle = GoogleFonts.poppins(
+     fontWeight: FontWeight.w500, color: primaryColor500);
+
 
 MaterialColor createMaterialColor(Color color) {
   List strengths = <double>[.05];
