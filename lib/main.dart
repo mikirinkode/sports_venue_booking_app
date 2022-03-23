@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:spod_app/theme.dart';
 
 import 'screen/settings_screen.dart';
-import 'screen/transaction_history_screen.dart';
+import 'screen/transaction/transaction_history_screen.dart';
 import 'screen/home_screen.dart';
 
 void main() {
@@ -44,10 +44,10 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 0,
         toolbarHeight: 0,
         systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: lightBlue100,
+            statusBarColor: backgroundColor,
             statusBarIconBrightness: Brightness.dark),
       ),
-      backgroundColor: lightBlue100,
+      backgroundColor: backgroundColor,
       body: screens[_currentIndex],
       bottomNavigationBar: CustomBottomNavBar(
         selectedItemIcon: const [
@@ -133,18 +133,20 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         });
       },
       child: Container(
-        color: Colors.white,
         height: kBottomNavigationBarHeight,
         width: MediaQuery.of(context).size.width / _selectedItemIcon.length,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius:
+                BorderRadius.vertical(top: Radius.circular(borderRadiusSize))),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: _selectedIndex == index
               ? Container(
-            decoration: BoxDecoration(
-              color: primaryColor100.withOpacity(0.7),
-              borderRadius: BorderRadius.circular(borderRadiusSize)
-            ),    
-            child: Row(
+                  decoration: BoxDecoration(
+                      color: primaryColor100.withOpacity(0.7),
+                      borderRadius: BorderRadius.circular(borderRadiusSize)),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Image.asset(
@@ -159,7 +161,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                       )
                     ],
                   ),
-              )
+                )
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
