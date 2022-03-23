@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
               padding: EdgeInsets.zero,
               children: [
                 Container(
-                  padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                  padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 8.0),
                   child: Text("Let's Have Fun and \nBe Healty!", style: greetingTextStyle,),
                 ),
                 CategoryListView(),

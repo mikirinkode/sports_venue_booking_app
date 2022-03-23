@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spod_app/theme.dart';
 
-import 'screen/about_screen.dart';
+import 'screen/settings_screen.dart';
 import 'screen/transaction_history_screen.dart';
 import 'screen/home_screen.dart';
 
@@ -34,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
   final screens = [
     HomeScreen(),
     TransactionHistoryScreen(),
-    AboutScreen(),
+    SettingsScreen(),
   ];
 
   @override
@@ -53,14 +53,14 @@ class _MainScreenState extends State<MainScreen> {
         selectedItemIcon: const [
           "assets/icons/home_fill.png",
           "assets/icons/receipt_fill.png",
-          "assets/icons/about_fill.png"
+          "assets/icons/settings_fill.png"
         ],
         unselectedItemIcon: const [
           "assets/icons/home_outlined.png",
           "assets/icons/receipt_outlined.png",
-          "assets/icons/about_outlined.png"
+          "assets/icons/settings_outlined.png"
         ],
-        label: const ["Home", "Transactions", "About"],
+        label: const ["Home", "Transaction", "Settings"],
         onChange: (val) {
           setState(() {
             _currentIndex = val;
@@ -133,35 +133,45 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         });
       },
       child: Container(
+        color: Colors.white,
+        height: kBottomNavigationBarHeight,
         width: MediaQuery.of(context).size.width / _selectedItemIcon.length,
-        child: _selectedIndex == index
-            ? Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Image.asset(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: _selectedIndex == index
+              ? Container(
+            decoration: BoxDecoration(
+              color: primaryColor100.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(borderRadiusSize)
+            ),    
+            child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset(
                         activeIcon,
-                        width: 26,
-                        height: 26,
+                        width: 22,
+                        height: 22,
                         color: primaryColor500,
                       ),
+                      Text(
+                        label,
+                        style: bottomNavTextStyle,
+                      )
+                    ],
+                  ),
+              )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      inactiveIcon,
+                      width: 22,
+                      height: 22,
+                      color: primaryColor300,
                     ),
-                    Text(
-                      label,
-                      style: bottomNavTextStyle,
-                    )
                   ],
                 ),
-              )
-            : Image.asset(
-                inactiveIcon,
-                width: 26,
-                height: 26,
-                color: primaryColor300,
-              ),
+        ),
       ),
     );
   }

@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../theme.dart';
 
-class AboutScreen extends StatelessWidget {
-  const AboutScreen({Key? key}) : super(key: key);
+class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        child: Text("AboutScreen", style: titleTextStyle,),
+        child: Text("SettingsScreen", style: titleTextStyle,),
       ),
     );
   }
