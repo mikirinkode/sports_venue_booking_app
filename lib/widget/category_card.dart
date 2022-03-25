@@ -44,7 +44,7 @@ class CategoryCard extends StatelessWidget {
           splashColor: primaryColor500.withOpacity(0.5),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return SearchScreen();
+              return SearchScreen(selectedDropdownItem: title,);
             }));
           },
           child: Container(

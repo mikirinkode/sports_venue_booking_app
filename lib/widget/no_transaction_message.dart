@@ -36,7 +36,7 @@ class NoTranscationMessage extends StatelessWidget {
               TextButton.icon(
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return SearchScreen();
+                      return SearchScreen(selectedDropdownItem: "",);
                     }));
                   },
                   icon: Icon(Icons.search),
