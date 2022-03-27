@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spod_app/theme.dart';
-
-import 'screen/settings_screen.dart';
-import 'screen/transaction/transaction_history_screen.dart';
-import 'screen/home_screen.dart';
+import 'screen/main/home_screen.dart';
+import 'screen/main/settings_screen.dart';
+import 'screen/main/transaction/transaction_history_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,12 +18,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: createMaterialColor(primaryColor500),
           canvasColor: colorWhite),
-      home: MainScreen(),
+      home: MainScreen(currentScreen: 0,),
     );
   }
 }
 
 class MainScreen extends StatefulWidget {
+  int currentScreen = 0;
+
+  MainScreen({required this.currentScreen});
+
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
@@ -38,34 +41,44 @@ class _MainScreenState extends State<MainScreen> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    _currentIndex = widget.currentScreen;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        toolbarHeight: 0,
-        systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: backgroundColor,
-            statusBarIconBrightness: Brightness.dark),
-      ),
-      backgroundColor: backgroundColor,
-      body: screens[_currentIndex],
-      bottomNavigationBar: CustomBottomNavBar(
-        selectedItemIcon: const [
-          "assets/icons/home_fill.png",
-          "assets/icons/receipt_fill.png",
-          "assets/icons/settings_fill.png"
-        ],
-        unselectedItemIcon: const [
-          "assets/icons/home_outlined.png",
-          "assets/icons/receipt_outlined.png",
-          "assets/icons/settings_outlined.png"
-        ],
-        label: const ["Home", "Transaction", "Settings"],
-        onChange: (val) {
-          setState(() {
-            _currentIndex = val;
-          });
-        },
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          toolbarHeight: 0,
+          systemOverlayStyle: const SystemUiOverlayStyle(
+              statusBarColor: backgroundColor,
+              statusBarIconBrightness: Brightness.dark),
+        ),
+        backgroundColor: backgroundColor,
+        body: screens[_currentIndex],
+        bottomNavigationBar: CustomBottomNavBar(
+          defaultSelectedIndex: _currentIndex,
+          selectedItemIcon: const [
+            "assets/icons/home_fill.png",
+            "assets/icons/receipt_fill.png",
+            "assets/icons/settings_fill.png"
+          ],
+          unselectedItemIcon: const [
+            "assets/icons/home_outlined.png",
+            "assets/icons/receipt_outlined.png",
+            "assets/icons/settings_outlined.png"
+          ],
+          label: const ["Home", "Transaction", "Settings"],
+          onChange: (val) {
+            setState(() {
+              _currentIndex = val;
+            });
+          },
+        ),
       ),
     );
   }
@@ -135,7 +148,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
       child: Container(
         height: kBottomNavigationBarHeight,
         width: MediaQuery.of(context).size.width / _selectedItemIcon.length,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius:
                 BorderRadius.vertical(top: Radius.circular(borderRadiusSize))),
@@ -144,7 +157,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
           child: _selectedIndex == index
               ? Container(
                   decoration: BoxDecoration(
-                      color: primaryColor100.withOpacity(0.7),
+                      color: primaryColor100,
                       borderRadius: BorderRadius.circular(borderRadiusSize)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
