@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spod_app/model/sport_field.dart';
-import '../theme.dart';
-import '../widget/facility_card.dart';
+import 'package:spod_app/screen/detail/checkout_screen.dart';
+import 'package:spod_app/theme.dart';
+import 'package:spod_app/widget/facility_card.dart';
 
 class DetailScreen extends StatelessWidget {
   SportField field;
@@ -17,7 +18,8 @@ class DetailScreen extends StatelessWidget {
         slivers: [
           customSliverAppBar(context, field),
           SliverPadding(
-            padding: EdgeInsets.only(right: 24, left: 24, bottom: 24, top: 8),
+            padding:
+                const EdgeInsets.only(right: 24, left: 24, bottom: 24, top: 8),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
                 Row(
@@ -29,7 +31,7 @@ class DetailScreen extends StatelessWidget {
                       height: 24,
                       color: primaryColor500,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16.0,
                     ),
                     Flexible(
@@ -41,17 +43,46 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(
+                    const Icon(
+                      CupertinoIcons.money_dollar_circle_fill,
+                      color: primaryColor500,
+                    ),
+                    const SizedBox(
+                      width: 16.0,
+                    ),
+                    Flexible(
+                      child: Text(
+                        "Rp. ${field.price} / hour",
+                        overflow: TextOverflow.visible,
+                        style: addressTextStyle,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                Text(
+                  "Contact:",
+                  style: subTitleTextStyle,
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Icon(
                       Icons.phone,
                       color: primaryColor500,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16.0,
                     ),
                     Flexible(
@@ -63,17 +94,17 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.account_circle_rounded,
                       color: primaryColor500,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16.0,
                     ),
                     Flexible(
@@ -85,7 +116,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
                 Row(
@@ -96,19 +127,19 @@ class DetailScreen extends StatelessWidget {
                       style: subTitleTextStyle,
                     ),
                     TextButton(
-                        onPressed: () {}, child: Text("See Availability"))
+                        onPressed: () {}, child: const Text("See Availability"))
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.date_range_rounded,
                       color: primaryColor500,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16.0,
                     ),
                     Text(
@@ -117,16 +148,16 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.access_time_rounded,
                       color: primaryColor500,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16.0,
                     ),
                     Text(
@@ -135,7 +166,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
                 Text(
@@ -149,46 +180,27 @@ class DetailScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.all(24),
-        decoration: BoxDecoration(color: Colors.white, boxShadow: [
+        padding: const EdgeInsets.all(16),
+        decoration: const BoxDecoration(color: Colors.white, boxShadow: [
           BoxShadow(
             color: lightBlue300,
             offset: Offset(0, 0),
             blurRadius: 10,
           ),
         ]),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Price / hour",
-                  style: descTextStyle,
-                ),
-                Text(
-                  field.price.toString(),
-                  style: priceTextStyle,
-                ),
-              ],
-            ),
-            SizedBox(
-              width: 24,
-            ),
-            Expanded(
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(100, 45),
-                      shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(borderRadiusSize))),
-                  onPressed: () {},
-                  child: Text("Book Now")),
-            )
-          ],
-        ),
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                minimumSize: const Size(100, 45),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(borderRadiusSize))),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return CheckoutScreen(
+                  field: field,
+                );
+              }));
+            },
+            child: const Text("Book Now")),
       ),
     );
   }
@@ -198,8 +210,8 @@ class DetailScreen extends StatelessWidget {
       shadowColor: primaryColor500.withOpacity(.2),
       backgroundColor: colorWhite,
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: colorWhite,
-        statusBarIconBrightness: Brightness.dark,
+        statusBarColor: Colors.black.withOpacity(0.4),
+        statusBarIconBrightness: Brightness.light,
       ),
       pinned: true,
       flexibleSpace: FlexibleSpaceBar(
@@ -209,7 +221,7 @@ class DetailScreen extends StatelessWidget {
         title: Container(
           width: MediaQuery.of(context).size.width,
           height: kToolbarHeight,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: colorWhite,
               borderRadius: BorderRadius.vertical(
                   top: Radius.circular(borderRadiusSize))),
@@ -227,19 +239,23 @@ class DetailScreen extends StatelessWidget {
         ),
         collapseMode: CollapseMode.parallax,
       ),
-      leading: Container(
-        decoration: BoxDecoration(
+      leading: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          decoration: const BoxDecoration(
             color: colorWhite,
-            borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(borderRadiusSize))),
-        child: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              color: darkBlue700,
-            )),
+            shape: BoxShape.circle,
+          ),
+          child: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              iconSize: 26,
+              icon: const Icon(
+                Icons.arrow_back,
+                color: darkBlue500,
+              )),
+        ),
       ),
       expandedHeight: 300,
     );
