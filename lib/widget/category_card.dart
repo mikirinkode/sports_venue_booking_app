@@ -37,6 +37,8 @@ class CategoryCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8),
       child: Material(
         color: colorWhite,
+        shadowColor: primaryColor500.withOpacity(0.1),
+        elevation: 10,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: InkWell(
           highlightColor: primaryColor500.withOpacity(0.1),
@@ -65,7 +67,7 @@ class CategoryCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8.0,
                 ),
                 Text(

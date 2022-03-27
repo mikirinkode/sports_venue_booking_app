@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../model/sport_field.dart';
-import '../screen/detail_screen.dart';
+import '../screen/detail/detail_screen.dart';
 import '../theme.dart';
 
 class SportFieldCard extends StatelessWidget {
@@ -12,26 +12,31 @@ class SportFieldCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context){
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
           return DetailScreen(field: field,);
         }));
       },
       child: Padding(
-        padding: const EdgeInsets.only(right: 16, left: 16, top: 4.0, bottom: 16.0),
+        padding: const EdgeInsets.only(
+            right: 16, left: 16, top: 4.0, bottom: 16.0),
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.0), color: colorWhite),
+              borderRadius: BorderRadius.circular(16.0), color: colorWhite,
+              boxShadow: [BoxShadow(
+                  color: primaryColor500.withOpacity(0.1), blurRadius: 20,)]
+          ),
           child: Column(
-            // mainAxisSize: MainAxisSize.min,
-            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ClipRRect(
                 borderRadius:
-                BorderRadius.vertical(top: Radius.circular(borderRadiusSize)),
+                const BorderRadius.vertical(top: Radius.circular(borderRadiusSize)),
                 child: Image.asset(field.imageAsset,
                     height: 200,
-                    width: MediaQuery.of(context).size.width,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
                     fit: BoxFit.cover),
               ),
               Container(
@@ -46,7 +51,7 @@ class SportFieldCard extends StatelessWidget {
                       style: subTitleTextStyle,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8.0,
                     ),
                     Row(
@@ -58,7 +63,7 @@ class SportFieldCard extends StatelessWidget {
                           height: 20,
                           color: primaryColor500,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 8.0,
                         ),
                         Flexible(
