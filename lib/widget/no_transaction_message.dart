@@ -4,7 +4,10 @@ import '../screen/search_screen.dart';
 import '../theme.dart';
 
 class NoTranscationMessage extends StatelessWidget {
-  const NoTranscationMessage({Key? key}) : super(key: key);
+  String messageTitle;
+  String messageDesc;
+
+  NoTranscationMessage({required this.messageTitle, required this.messageDesc});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +21,16 @@ class NoTranscationMessage extends StatelessWidget {
                 "assets/images/no_transaction_illustration.png",
                 width: 150,
               ),
+              SizedBox(height: 8,),
               Text(
-                "No Transactions, yet.",
+                messageTitle,
                 style: titleTextStyle.copyWith(color: darkBlue300),
               ),
               const SizedBox(
                 height: 8.0,
               ),
               Text(
-                "You have never placed an order. Let's explore the field near you.",
+              messageDesc,
                 style: descTextStyle,
                 textAlign: TextAlign.center,
               ),
@@ -39,7 +43,7 @@ class NoTranscationMessage extends StatelessWidget {
                       return SearchScreen(selectedDropdownItem: "",);
                     }));
                   },
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                   label: Text(
                     "Search a Field",
                     style: buttonTextStyle.copyWith(color: primaryColor500),

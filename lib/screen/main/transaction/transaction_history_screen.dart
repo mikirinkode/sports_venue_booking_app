@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:spod_app/screen/search_screen.dart';
-import 'package:spod_app/screen/transaction/history_screen.dart';
-
-import '../../theme.dart';
+import 'package:spod_app/screen/main/transaction/history_screen.dart';
+import 'package:spod_app/screen/main/transaction/order_screen.dart';
+import 'package:spod_app/theme.dart';
 
 class TransactionHistoryScreen extends StatefulWidget {
-
   @override
-  State<TransactionHistoryScreen> createState() => _TransactionHistoryScreenState();
+  State<TransactionHistoryScreen> createState() =>
+      _TransactionHistoryScreenState();
 }
 
-class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> with TickerProviderStateMixin {
-
+class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
+    with TickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -20,6 +18,7 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> wit
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +38,7 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> wit
           labelColor: primaryColor500,
           unselectedLabelColor: darkBlue300,
           indicatorColor: primaryColor500,
-          tabs: [
+          tabs: const [
             Tab(
               text: "Order",
             ),
@@ -51,12 +50,11 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen> wit
       ),
       body: TabBarView(
         controller: _tabController,
-          children: [
-            HistoryScreen(),
-            HistoryScreen(),
-          ],
+        children: [
+          OrderScreen(),
+          HistoryScreen(),
+        ],
       ),
     );
   }
-
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:spod_app/model/sport_field.dart';
+import 'package:spod_app/screen/detail/detail_screen.dart';
+import 'package:spod_app/theme.dart';
 
-import '../model/sport_field.dart';
-import '../screen/detail_screen.dart';
-import '../theme.dart';
 
 class SportFieldList extends StatelessWidget {
   SportField field;
@@ -20,7 +20,7 @@ class SportFieldList extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(right: 16, left: 16, bottom: 16.0),
         child: Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.0), color: colorWhite),
@@ -36,7 +36,7 @@ class SportFieldList extends StatelessWidget {
                     // width: 100,
                     fit: BoxFit.fill),
               ),
-              SizedBox(width: 16,),
+              const SizedBox(width: 8,),
               Flexible(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -48,7 +48,7 @@ class SportFieldList extends StatelessWidget {
                       style: subTitleTextStyle,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(height: 8,),
+                    const SizedBox(height: 8,),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -58,7 +58,7 @@ class SportFieldList extends StatelessWidget {
                           height: 20,
                           color: primaryColor500,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 8.0,
                         ),
                         Flexible(

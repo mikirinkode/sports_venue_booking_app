@@ -54,7 +54,7 @@ class _FacilityCardState extends State<FacilityCard> {
         },
         child: Center(
           child: Container(
-            padding: EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(4.0),
             child: Center(
               child: !showName
                   ? Image.asset(
