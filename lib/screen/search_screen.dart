@@ -21,21 +21,22 @@ class _SearchScreenState extends State<SearchScreen> {
   String _query = "";
   String _selectedDropdownItem = "All";
   List<SportField> _fieldList = [];
-  List<SportField> _selectedList = [];
+  List<SportField> _selectedListByCategory = [];
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    this._query = widget.selectedDropdownItem;
-    this._fieldList = widget.fieldList;
+    _query = widget.selectedDropdownItem;
+    _fieldList = widget.fieldList;
 
-    if (_query != ""){
+    if (_query != "") {
       _selectedDropdownItem = widget.selectedDropdownItem;
-      for (int i = 0; i < _fieldList.length; i ++){
-        if (_selectedDropdownItem == "All"){
-          _selectedList = _fieldList;
-        } else if (_fieldList[i].category.name == _selectedDropdownItem){
-          _selectedList.add(_fieldList[i]);
+      for (int i = 0; i < _fieldList.length; i++) {
+        if (_selectedDropdownItem == "All") {
+          _selectedListByCategory = _fieldList;
+        } else if (_fieldList[i].category.name == _selectedDropdownItem) {
+          _selectedListByCategory.add(_fieldList[i]);
         }
       }
     }
@@ -47,7 +48,7 @@ class _SearchScreenState extends State<SearchScreen> {
       backgroundColor: lightBlue100,
       appBar: AppBar(
         elevation: 0.0,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
             statusBarColor: primaryColor500,
             statusBarIconBrightness: Brightness.light),
         toolbarHeight: 0,
@@ -55,33 +56,40 @@ class _SearchScreenState extends State<SearchScreen> {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
+            padding:
+                const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
             color: primaryColor500,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(onPressed: (){
-                  Navigator.pop(context);
-                }, icon: Icon(CupertinoIcons.arrow_left), color: colorWhite,),
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(CupertinoIcons.arrow_left),
+                  color: colorWhite,
+                ),
                 showDropdown()
               ],
             ),
           ),
           Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: primaryColor500,
                   borderRadius: BorderRadius.vertical(
                       bottom: Radius.circular(borderRadiusSize))),
-              child: SearchBar()),
+              child: searchBar()),
           Expanded(
             child: ListView(
               children: [
-                SizedBox(height: 16,),
+                const SizedBox(
+                  height: 16,
+                ),
                 Column(
-                    children: _selectedList
+                    children: _selectedListByCategory
                         .map((fieldEntity) => SportFieldList(
-                      field: fieldEntity,
-                    ))
+                              field: fieldEntity,
+                            ))
                         .toList())
               ],
             ),
@@ -127,54 +135,40 @@ class _SearchScreenState extends State<SearchScreen> {
         iconDisabledColor: darkBlue500,
         dropdownColor: darkBlue500,
         style: normalTextStyle.copyWith(color: colorWhite),
-        icon: Icon(Icons.filter_alt),
+        icon: const Icon(Icons.filter_alt),
         isDense: false,
         isExpanded: false,
-        underline: SizedBox(),
+        underline: const SizedBox(),
         alignment: Alignment.centerRight,
-        items: <String>["All", "Basketball", "Futsal", "Table Tennis", "Tennis", "Volley"]
+        items: <String>[
+          "All",
+          "Basketball",
+          "Futsal",
+          "Table Tennis",
+          "Tennis",
+          "Volley"
+        ]
             .map<DropdownMenuItem<String>>((value) => DropdownMenuItem(
                   child: Text(value),
                   value: value,
                 ))
             .toList(),
         onChanged: (value) {
-          _selectedList = [];
+          _selectedListByCategory = [];
           setState(() {
             _selectedDropdownItem = value.toString();
-            for (int i = 0; i < _fieldList.length; i ++){
-              if (_selectedDropdownItem == "All"){
-                _selectedList = _fieldList;
-              } else if (_fieldList[i].category.name == _selectedDropdownItem){
-                _selectedList.add(_fieldList[i]);
+            for (int i = 0; i < _fieldList.length; i++) {
+              if (_selectedDropdownItem == "All") {
+                _selectedListByCategory = _fieldList;
+              } else if (_fieldList[i].category.name == _selectedDropdownItem) {
+                _selectedListByCategory.add(_fieldList[i]);
               }
             }
           });
         });
   }
-}
 
-class SearchBar extends StatefulWidget {
-  @override
-  State<SearchBar> createState() => _SearchBarState();
-}
-
-class _SearchBarState extends State<SearchBar> {
-  final TextEditingController _controller = TextEditingController();
-  String _userInput = "";
-
-  final FocusNode node = FocusNode();
-
-  @override
-  void initState() {
-    super.initState();
-    _controller.addListener(() {
-      setState(() {});
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget searchBar() {
     return Padding(
       padding: const EdgeInsets.only(
           left: 16.0, right: 16.0, top: 0.0, bottom: 16.0),
@@ -185,11 +179,27 @@ class _SearchBarState extends State<SearchBar> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
           child: TextField(
-            focusNode: node,
             onChanged: (String value) {
               setState(() {
-                _userInput = value;
+                _query = value;
               });
+            },
+            onSubmitted: (String value) {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text('OK'),
+                        ),
+                      ],
+                      title: const Text("Hello there :)"),
+                      content: const Text(
+                          'I\'m so sorry because search feature is not implemented yet'),
+                    );
+                  });
             },
             controller: _controller,
             decoration: InputDecoration(
@@ -200,7 +210,7 @@ class _SearchBarState extends State<SearchBar> {
                         width: 0,
                       )
                     : IconButton(
-                        icon: Icon(Icons.close),
+                        icon: const Icon(Icons.close),
                         onPressed: () => _controller.clear(),
                       )),
           ),
