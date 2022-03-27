@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../theme.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../theme.dart';
 
 class SettingsScreen extends StatelessWidget {
   @override
@@ -28,7 +28,7 @@ class SettingsScreen extends StatelessWidget {
                   "Account",
                   style: subTitleTextStyle.copyWith(color: primaryColor500),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Row(
@@ -36,7 +36,7 @@ class SettingsScreen extends StatelessWidget {
                     Container(
                       width: 75,
                       height: 75,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                         image: DecorationImage(
@@ -45,7 +45,7 @@ class SettingsScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16,
                     ),
                     Column(
@@ -55,11 +55,11 @@ class SettingsScreen extends StatelessWidget {
                           "Muhammad Wafa",
                           style: subTitleTextStyle,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Container(
-                            padding: EdgeInsets.all(4),
+                            padding: const EdgeInsets.all(4),
                             decoration: BoxDecoration(
                                 color: primaryColor100.withOpacity(0.5),
                                 borderRadius: BorderRadius.circular(8),
@@ -73,7 +73,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
                 Text(
@@ -90,15 +90,15 @@ class SettingsScreen extends StatelessWidget {
                         Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle, color: colorWhite),
-                          child: Icon(
+                          child: const Icon(
                             CupertinoIcons.creditcard_fill,
                             size: 24,
                             color: darkBlue300,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Column(
@@ -108,7 +108,7 @@ class SettingsScreen extends StatelessWidget {
                               "Current Payment method",
                               style: normalTextStyle,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Text(
@@ -121,7 +121,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Text(
@@ -138,15 +138,15 @@ class SettingsScreen extends StatelessWidget {
                         Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle, color: colorWhite),
-                          child: Icon(
+                          child: const Icon(
                             CupertinoIcons.moon_circle,
                             size: 24,
                             color: darkBlue300,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Column(
@@ -156,7 +156,7 @@ class SettingsScreen extends StatelessWidget {
                               "Theme",
                               style: normalTextStyle,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Text(
@@ -179,15 +179,15 @@ class SettingsScreen extends StatelessWidget {
                         Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle, color: colorWhite),
-                          child: Icon(
+                          child: const Icon(
                             Icons.language_rounded,
                             size: 24,
                             color: darkBlue300,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Column(
@@ -197,7 +197,7 @@ class SettingsScreen extends StatelessWidget {
                               "Language",
                               style: normalTextStyle,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Text(
@@ -210,7 +210,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 32,
                 ),
                 Text(
@@ -229,15 +229,15 @@ class SettingsScreen extends StatelessWidget {
                         Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle, color: colorWhite),
-                          child: Icon(
+                          child: const Icon(
                             CupertinoIcons.info_circle_fill,
                             size: 24,
                             color: darkBlue300,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Column(
@@ -247,7 +247,7 @@ class SettingsScreen extends StatelessWidget {
                               "Spod - Sports Field Booking App",
                               style: normalTextStyle,
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             Text(
@@ -260,7 +260,50 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+
+                InkWell(
+
+                  onTap: () => launch("https://github.com/mikirinkode"),
+                  splashColor: primaryColor100,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 50,
+                          height: 50,
+                          padding: const EdgeInsets.all(12.0),
+                          decoration: const BoxDecoration(
+                              shape: BoxShape.circle, color: colorWhite),
+                          child: Image.asset(
+                            "assets/icons/github.png",
+                            color: darkBlue300,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Github",
+                              style: normalTextStyle,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              "github.com/mikirinkode",
+                              style: descTextStyle,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
                   height: 16,
                 ),
                 Row(
@@ -270,24 +313,24 @@ class SettingsScreen extends StatelessWidget {
                       "Created with ",
                       style: normalTextStyle,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
                     Text(
                       "{code}",
                       style: subTitleTextStyle.copyWith(color: primaryColor500),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
                     Text(
                       "and",
                       style: normalTextStyle,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 4,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.favorite_rounded,
                       color: Colors.red,
                     )
@@ -303,9 +346,9 @@ class SettingsScreen extends StatelessWidget {
     final scaffold = ScaffoldMessenger.of(context);
     scaffold.showSnackBar(SnackBar(
       content: Text(message),
-      margin: EdgeInsets.all(16),
+      margin: const EdgeInsets.all(16),
       behavior: SnackBarBehavior.floating,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
       // margin: EdgeInsets.all(16),
     ));
   }
