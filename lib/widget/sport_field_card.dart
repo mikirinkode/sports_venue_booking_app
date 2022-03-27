@@ -11,15 +11,16 @@ class SportFieldCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) {
-          return DetailScreen(field: field,);
-        }));
-      },
-      child: Padding(
-        padding: const EdgeInsets.only(
-            right: 16, left: 16, top: 4.0, bottom: 16.0),
+    return Padding(
+      padding: const EdgeInsets.only(
+          right: 16, left: 16, top: 4.0, bottom: 16.0),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return DetailScreen(field: field,);
+          }));
+        },
         child: Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16.0), color: colorWhite,
