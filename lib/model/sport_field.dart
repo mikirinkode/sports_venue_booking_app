@@ -7,12 +7,14 @@ class SportField {
   SportCategory category;
   List<FieldFacility> facilities;
   String address;
-  String author;
   String phoneNumber;
   String openDay;
   String openTime;
   String imageAsset;
   int price;
+  String author;
+  String authorUrl;
+  String imageUrl;
 
   SportField(
       {required this.id,
@@ -20,10 +22,12 @@ class SportField {
       required this.category,
       required this.facilities,
       required this.address,
-      required this.author,
       required this.phoneNumber,
       required this.openDay,
       required this.openTime,
       required this.imageAsset,
-      required this.price});
+      required this.price,
+      required this.author,
+      required this.authorUrl,
+      required this.imageUrl});
 }
