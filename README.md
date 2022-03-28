@@ -1,6 +1,6 @@
 # Spod App
 
-Spod is an android application which allow user to book a sport field from anywhere at anytime using mobile phone. This project was created using the Flutter Framework. 
+Spod is an android application which allow user to book a sport venue from anywhere at anytime using mobile phone. This project was created using the Flutter Framework. 
 
 ### Note
 - The app is using a Dummy Data (Fake Data)
