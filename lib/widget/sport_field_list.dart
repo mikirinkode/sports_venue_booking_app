@@ -34,8 +34,8 @@ class SportFieldList extends StatelessWidget {
                 BorderRadius.circular(borderRadiusSize),
                 child: Image.asset(field.imageAsset,
                     height: 65,
-                    // width: 100,
-                    fit: BoxFit.fill),
+                    width: 100,
+                    fit: BoxFit.cover),
               ),
               const SizedBox(width: 8,),
               Flexible(

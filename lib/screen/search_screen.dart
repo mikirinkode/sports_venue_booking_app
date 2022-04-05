@@ -197,7 +197,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       ],
                       title: const Text("Hello there :)"),
                       content: const Text(
-                          'I\'m so sorry because search feature is not implemented yet'),
+                          'Sorry, the search feature is not implemented yet'),
                     );
                   });
             },

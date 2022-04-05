@@ -16,6 +16,7 @@ class FacilityCardList extends StatelessWidget{
       physics: const ClampingScrollPhysics(),
       mainAxisSpacing: 16,
       crossAxisSpacing: 16,
+      padding: EdgeInsets.zero,
       childAspectRatio: (1 / 1),
       shrinkWrap: true,
       children: facilities.map((facility) {
