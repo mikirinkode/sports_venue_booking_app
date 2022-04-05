@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:spod_app/utils/dummy_data.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../theme.dart';
+import '../../../theme.dart';
 
 class SettingsScreen extends StatelessWidget {
   @override
@@ -29,49 +30,55 @@ class SettingsScreen extends StatelessWidget {
                   style: subTitleTextStyle.copyWith(color: primaryColor500),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 8,
                 ),
-                Row(
-                  children: [
-                    Container(
-                      width: 75,
-                      height: 75,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: AssetImage("assets/images/user_pic.png"),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                InkWell(
+                  onTap: (){},
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
                       children: [
-                        Text(
-                          "Muhammad Wafa",
-                          style: subTitleTextStyle,
+                        Container(
+                          width: 75,
+                          height: 75,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white,
+                            image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage("assets/images/user_profile_example.png"),
+                            ),
+                          ),
                         ),
                         const SizedBox(
-                          height: 8,
+                          width: 16,
                         ),
-                        Container(
-                            padding: const EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                                color: primaryColor100.withOpacity(0.5),
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: primaryColor500)),
-                            child: Text(
-                              "Premium",
-                              style: descTextStyle.copyWith(
-                                  color: primaryColor500),
-                            ))
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              sampleUser.name,
+                              style: subTitleTextStyle,
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Container(
+                                padding: const EdgeInsets.all(4),
+                                decoration: BoxDecoration(
+                                    color: primaryColor100.withOpacity(0.5),
+                                    borderRadius: BorderRadius.circular(8),
+                                    border: Border.all(color: primaryColor500)),
+                                child: Text(
+                                  sampleUser.accountType,
+                                  style: descTextStyle.copyWith(
+                                      color: primaryColor500),
+                                ))
+                          ],
+                        ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
                 const SizedBox(
                   height: 32,
@@ -101,21 +108,24 @@ class SettingsScreen extends StatelessWidget {
                         const SizedBox(
                           width: 16,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Current Payment method",
-                              style: normalTextStyle,
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              "Not Set",
-                              style: descTextStyle,
-                            ),
-                          ],
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Current Payment method",
+                                overflow: TextOverflow.visible,
+                                style: normalTextStyle,
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                "Not Set",
+                                style: descTextStyle,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -214,7 +224,7 @@ class SettingsScreen extends StatelessWidget {
                   height: 32,
                 ),
                 Text(
-                  "App Version",
+                  "About App",
                   style: subTitleTextStyle.copyWith(color: primaryColor500),
                 ),
                 InkWell(
@@ -240,21 +250,23 @@ class SettingsScreen extends StatelessWidget {
                         const SizedBox(
                           width: 16,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Spod - Sports Field Booking App",
-                              style: normalTextStyle,
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              "Alpha Version",
-                              style: descTextStyle,
-                            ),
-                          ],
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Spod - Sports Venue Booking App",
+                                style: normalTextStyle,
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                              "Version 1.0.0",
+                                style: descTextStyle,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -283,21 +295,23 @@ class SettingsScreen extends StatelessWidget {
                         const SizedBox(
                           width: 16,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Github",
-                              style: normalTextStyle,
-                            ),
-                            const SizedBox(
-                              height: 8,
-                            ),
-                            Text(
-                              "github.com/mikirinkode",
-                              style: descTextStyle,
-                            ),
-                          ],
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Github",
+                                style: normalTextStyle,
+                              ),
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                "github.com/mikirinkode",
+                                style: descTextStyle,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

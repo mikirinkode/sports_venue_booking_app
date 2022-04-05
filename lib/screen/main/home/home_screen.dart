@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Recommended Fields",
+                        "Recommended Venue",
                         style: subTitleTextStyle,
                       ),
                       TextButton(
@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.white,
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: AssetImage("assets/images/user_pic.png"),
+                      image: AssetImage("assets/images/user_profile_example.png"),
                     ),
                   ),
                 ),
@@ -106,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                       height: 4,
                     ),
                     Text(
-                      "Muhammad Wafa",
+                      sampleUser.name,
                       style: subTitleTextStyle,
                     ),
                   ],
