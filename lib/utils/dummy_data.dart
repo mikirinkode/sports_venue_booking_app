@@ -1,8 +1,15 @@
-
 import 'package:spod_app/model/field_facility.dart';
 import 'package:spod_app/model/field_order.dart';
 import 'package:spod_app/model/sport_category.dart';
 import 'package:spod_app/model/sport_field.dart';
+import 'package:spod_app/model/user.dart';
+
+var sampleUser = User(
+    id: "user01",
+    name: "Sample User",
+    email: "sample@mail.com",
+    accountType: "Premium",
+    imageProfile: "assets/images/user_profile_example.png");
 
 var _basketball = SportCategory(
   name: "Basketball",
@@ -46,18 +53,18 @@ var _chargingArea = FieldFacility(
     name: "Charging Area", imageAsset: "assets/icons/charging.png");
 
 SportField futsal1 = SportField(
-    id: "01",
-    name: "Rionov Football field",
-    address: "Jendral Sudirman street no. 31",
-    category: _futsal,
-    facilities: [_wifi, _toilet],
-    phoneNumber: "0812 2345 6789",
-    openDay: "Monday to Sunday",
-    openTime: "08.00 – 16.00",
-    imageAsset: "assets/images/pringsewu_futsal.jpg",
-    price: 80000,
-    author: "Daniel larionov",
-authorUrl: "https://unsplash.com/@foxysnaps",
+  id: "01",
+  name: "Rionov Football field",
+  address: "Jendral Sudirman street no. 31",
+  category: _futsal,
+  facilities: [_wifi, _toilet],
+  phoneNumber: "0812 2345 6789",
+  openDay: "Monday to Sunday",
+  openTime: "08.00 – 16.00",
+  imageAsset: "assets/images/pringsewu_futsal.jpg",
+  price: 80000,
+  author: "Daniel larionov",
+  authorUrl: "https://unsplash.com/@foxysnaps",
   imageUrl: "https://unsplash.com/photos/oXCgQRsb2ug",
 );
 
@@ -77,7 +84,7 @@ SportField basketball1 = SportField(
     price: 100000);
 SportField volley1 = SportField(
     id: "03",
-    name: "Voli Pantai Tanjung",
+    name: "Voli Tanjung",
     address: "Tanjung Tinggi street no. 9",
     category: _volley,
     facilities: [_wifi, _toilet, _canteen, _chargingArea, _changingRoom],
@@ -91,7 +98,7 @@ SportField volley1 = SportField(
     price: 115000);
 SportField tableTennis1 = SportField(
     id: "04",
-    name: "Tenis Meja D’cortez",
+    name: "Table Tennis D’cortez",
     address: "Sukamakmur street no. 24",
     category: _tableTennis,
     facilities: [_wifi, _toilet, _canteen],
@@ -214,4 +221,4 @@ List<SportField> recommendedSportField = [
   futsal1
 ];
 
-List <FieldOrder> dummyUserOrderList = [];
+List<FieldOrder> dummyUserOrderList = [];
