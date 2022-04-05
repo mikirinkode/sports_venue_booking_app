@@ -17,11 +17,12 @@ class NoTranscationMessage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              const SizedBox(height: 16,),
               Image.asset(
                 "assets/images/no_transaction_illustration.png",
                 width: 150,
               ),
-              SizedBox(height: 8,),
+              const SizedBox(height: 8,),
               Text(
                 messageTitle,
                 style: titleTextStyle.copyWith(color: darkBlue300),
@@ -45,7 +46,7 @@ class NoTranscationMessage extends StatelessWidget {
                   },
                   icon: const Icon(Icons.search),
                   label: Text(
-                    "Search a Field",
+                    "Find a Sport Venue",
                     style: buttonTextStyle.copyWith(color: primaryColor500),
                   ))
             ],

@@ -10,7 +10,13 @@ class HistoryScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Center(
-        child: NoTranscationMessage(messageTitle: "No Completed Order, yet.",messageDesc: "Please Complete your order. . . \nif you don't have one, Let's explore the field near you.",),
+        child: SingleChildScrollView(
+          child: NoTranscationMessage(
+            messageTitle: "No Completed Order, yet.",
+            messageDesc:
+                "Please Complete your order. . . \nif you don't have one, Let's explore sport venue near you.",
+          ),
+        ),
       ),
     );
   }

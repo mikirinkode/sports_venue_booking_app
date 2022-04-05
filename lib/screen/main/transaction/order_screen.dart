@@ -12,35 +12,49 @@ class OrderScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: backgroundColor,
         body: fieldOrderList.isEmpty
-            ? NoTranscationMessage(messageTitle: "No Transactions, yet.", messageDesc: "You have never placed an order. Let's explore the field near you.",)
+            ? Center(
+                child: SingleChildScrollView(
+                    child: NoTranscationMessage(
+                messageTitle: "No Transactions, yet.",
+                messageDesc:
+                    "You have never placed an order. Let's explore the sport venue near you.",
+              )))
             : ListView.builder(
                 itemCount: fieldOrderList.length,
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
-                    onTap: (){},
+                    onTap: () {},
                     splashColor: primaryColor100,
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Row(
                         children: [
                           Container(
-                              width: 50,
-                              height: 50,
-                              decoration: BoxDecoration(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(fieldOrderList[index].field.imageAsset)
-                                )
-                              ),
+                                    fit: BoxFit.cover,
+                                    image: AssetImage(fieldOrderList[index]
+                                        .field
+                                        .imageAsset))),
                           ),
-                          const SizedBox(width: 16,),
+                          const SizedBox(
+                            width: 16,
+                          ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(fieldOrderList[index].field.name, style: normalTextStyle,),
-                              const SizedBox(height: 4,),
-                              Text(fieldOrderList[index].selectedDate, style: normalTextStyle),
+                              Text(
+                                fieldOrderList[index].field.name,
+                                style: normalTextStyle,
+                              ),
+                              const SizedBox(
+                                height: 4,
+                              ),
+                              Text(fieldOrderList[index].selectedDate,
+                                  style: normalTextStyle),
                             ],
                           ),
                           const Spacer(),
@@ -53,7 +67,7 @@ class OrderScreen extends StatelessWidget {
                               child: Text(
                                 "Unpaid",
                                 style: normalTextStyle.copyWith(
-                                  fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w500,
                                     color: Colors.red),
                               ))
                         ],
