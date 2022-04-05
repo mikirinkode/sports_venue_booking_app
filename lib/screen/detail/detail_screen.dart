@@ -5,6 +5,7 @@ import 'package:spod_app/model/sport_field.dart';
 import 'package:spod_app/screen/detail/checkout_screen.dart';
 import 'package:spod_app/theme.dart';
 import 'package:spod_app/widget/facility_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatelessWidget {
   SportField field;
@@ -173,6 +174,9 @@ class DetailScreen extends StatelessWidget {
                   "Facilities:",
                   style: subTitleTextStyle,
                 ),
+                const SizedBox(
+                  height: 16,
+                ),
                 FacilityCardList(facilities: field.facilities),
               ]),
             ),
@@ -257,6 +261,57 @@ class DetailScreen extends StatelessWidget {
               )),
         ),
       ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: const BoxDecoration(
+              color: colorWhite,
+              shape: BoxShape.circle,
+            ),
+            child: PopupMenuButton(
+              tooltip: "Image's Author Url",
+              padding: EdgeInsets.zero,
+              icon: const Icon(CupertinoIcons.info, color: darkBlue500),
+              itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                PopupMenuItem(
+                    enabled: false,
+                    child: Container(
+                        padding: const EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                            color: lightBlue100,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Text(
+                          "Image by:",
+                          style: subTitleTextStyle,
+                        ))),
+                PopupMenuItem(
+                    onTap: () => launch(field.authorUrl),
+                    child: ListTile(
+                      horizontalTitleGap: 0,
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.account_circle_outlined),
+                      title: Text(
+                        "${field.author} on Unsplash.com",
+                        style: normalTextStyle,
+                      ),
+                    )),
+                PopupMenuItem(
+                    onTap: () => launch(field.imageUrl),
+                    child: ListTile(
+                      horizontalTitleGap: 0,
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.image_outlined),
+                      title: Text(
+                        "See original image",
+                        style: normalTextStyle,
+                      ),
+                    )),
+              ],
+            ),
+          ),
+        )
+      ],
       expandedHeight: 300,
     );
   }
