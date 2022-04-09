@@ -2,6 +2,11 @@
 
 Spod is an android application which allow user to book a sport venue from anywhere at anytime using mobile phone. This project was created using the Flutter Framework. 
 
+<a href="https://play.google.com/store/apps/details?id=com.mikirinkode.spod">
+  <img alt="Get it on Google Play"
+       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+</a>
+
 ### Note
 - Some Feature are still unimplemented
 - The app is using a Dummy Data (Fake Data)
