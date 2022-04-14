@@ -162,7 +162,7 @@ class DetailScreen extends StatelessWidget {
                       width: 16.0,
                     ),
                     Text(
-                      field.openTime,
+                      "${field.openTime} - ${field.closeTime}",
                       style: descTextStyle,
                     ),
                   ],

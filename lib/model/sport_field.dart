@@ -10,6 +10,7 @@ class SportField {
   String phoneNumber;
   String openDay;
   String openTime;
+  String closeTime;
   String imageAsset;
   int price;
   String author;
@@ -25,6 +26,7 @@ class SportField {
       required this.phoneNumber,
       required this.openDay,
       required this.openTime,
+      required this.closeTime,
       required this.imageAsset,
       required this.price,
       required this.author,

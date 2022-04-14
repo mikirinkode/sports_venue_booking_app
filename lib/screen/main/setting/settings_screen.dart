@@ -274,7 +274,6 @@ class SettingsScreen extends StatelessWidget {
                 ),
 
                 InkWell(
-
                   onTap: () => launch("https://github.com/mikirinkode"),
                   splashColor: primaryColor100,
                   child: Padding(

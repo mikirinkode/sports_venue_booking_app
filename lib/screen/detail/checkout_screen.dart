@@ -21,13 +21,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   final TextEditingController _controller = TextEditingController();
   DateTime _dateTime = DateTime.now();
   final dateFormat = DateFormat("EEEE, dd MMM yyyy");
-  final availableBookTime = [
-    CheckBoxState(title: "07.00 - 08.00"),
-    CheckBoxState(title: "09.00 - 10.00"),
-    CheckBoxState(title: "11.00 - 12.00"),
+  var availableBookTime = [
+    CheckBoxState(title: "00.00"),
   ];
   int _totalBill = 0;
   bool _enableCreateOrderBtn = false;
+  List<String> timeList = timeToBook;
+  var currentTime = "00.00";
 
   @override
   void initState() {
@@ -35,6 +35,24 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     _controller.addListener(() {
       setState(() {});
     });
+
+    for (var time in timeList) {
+      if (time == widget.field.openTime) {
+        currentTime = time;
+        print("$currentTime and $time");
+      }
+    }
+
+    availableBookTime.removeAt(0);
+    for (int i = timeList.indexOf(currentTime); i < 24; i++) {
+      if (currentTime == widget.field.closeTime) {
+        break;
+      } else {
+        availableBookTime
+            .add(CheckBoxState(title: "${timeList[i]} - ${timeList[i + 1]}"));
+        currentTime = timeList[i + 1];
+      }
+    }
   }
 
   @override
@@ -73,9 +91,22 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         border: Border.all(color: primaryColor100, width: 2),
                         color: lightBlue100,
                         borderRadius: BorderRadius.circular(borderRadiusSize)),
-                    child: Text(widget.field.name,
-                        style: normalTextStyle.copyWith(
-                            fontWeight: FontWeight.w600)),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          "assets/icons/pin.png",
+                          width: 24,
+                          height: 24,
+                          color: primaryColor500,
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        Text(widget.field.name,
+                            style: normalTextStyle.copyWith(
+                                fontWeight: FontWeight.w600)),
+                      ],
+                    ),
                   ),
                   const SizedBox(
                     height: 32,
@@ -100,18 +131,20 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               BorderRadius.circular(borderRadiusSize)),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          const Icon(
+                            Icons.date_range_rounded,
+                            color: primaryColor500,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
                           Text(
                             _dateTime == null
                                 ? "date not selected.."
                                 : dateFormat.format(_dateTime).toString(),
                             style: normalTextStyle,
                           ),
-                          const Icon(
-                            Icons.album_outlined,
-                            color: primaryColor500,
-                          )
                         ],
                       ),
                     ),
@@ -135,7 +168,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(16),
-        decoration: const BoxDecoration(color: Colors.white),
+        decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+          BoxShadow(
+            color: lightBlue300,
+            offset: Offset(0, 0),
+            blurRadius: 10,
+          )
+        ]),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -218,7 +257,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             context: context,
             initialDate: DateTime.now(),
             firstDate: DateTime.now(),
-            lastDate: DateTime(DateTime.now().year, DateTime.now().month + 1))
+            lastDate: DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 6))
         .then((value) {
       setState(() {
         _dateTime = value!;
