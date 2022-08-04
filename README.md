@@ -12,7 +12,7 @@ Spod is an android application which allow user to book a sport venue from anywh
 
 [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
       alt='Get it on Google Play'
-      height="80">](https://play.google.com/store/apps/details?id=com.mikirinkode.kotakmovie)
+      height="80">](https://play.google.com/store/apps/details?id=com.mikirinkode.spod)
 
 <div align="left">
 
