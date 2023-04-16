@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import '../model/sport_field.dart';
 import '../theme.dart';
 import '../utils/dummy_data.dart';
-import '../widget/sport_field_list.dart';
+import '../components/sport_field_list.dart';
 
 class SearchScreen extends StatefulWidget {
   String selectedDropdownItem;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:spod_app/screen/main/main_screen.dart';
-import 'package:spod_app/screen/onboarding_screen.dart';
+import 'package:spod_app/modules/main/main_screen.dart';
+import 'package:spod_app/modules/onboarding_screen.dart';
 import 'package:spod_app/theme.dart';
 
 Future<void> main() async {

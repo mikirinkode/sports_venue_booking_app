@@ -1,55 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:spod_app/model/sport_field.dart';
-import 'package:spod_app/screen/detail/detail_screen.dart';
-import 'package:spod_app/theme.dart';
 
+import '../model/sport_field.dart';
+import '../modules/detail/detail_screen.dart';
+import '../theme.dart';
 
-class SportFieldList extends StatelessWidget {
+class SportFieldCard extends StatelessWidget {
   SportField field;
 
-  SportFieldList({required this.field});
+  SportFieldCard({required this.field});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 16, left: 16, bottom: 16.0),
+      padding: const EdgeInsets.only(
+          right: 16, left: 16, top: 4.0, bottom: 16.0),
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
-        onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context){
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
             return DetailScreen(field: field,);
           }));
         },
         child: Container(
-          padding: const EdgeInsets.all(8),
-          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.0), color: colorWhite),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
+              borderRadius: BorderRadius.circular(16.0), color: colorWhite,
+              boxShadow: [BoxShadow(
+                  color: primaryColor500.withOpacity(0.1), blurRadius: 20,)]
+          ),
+          child: Column(
             children: [
               ClipRRect(
                 borderRadius:
-                BorderRadius.circular(borderRadiusSize),
+                const BorderRadius.vertical(top: Radius.circular(borderRadiusSize)),
                 child: Image.asset(field.imageAsset,
-                    height: 65,
-                    width: 100,
+                    height: 200,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
                     fit: BoxFit.cover),
               ),
-              const SizedBox(width: 8,),
-              Flexible(
+              Container(
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
                       field.name,
-                      maxLines: 1,
+                      maxLines: 2,
                       style: subTitleTextStyle,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(height: 8,),
+                    const SizedBox(
+                      height: 8.0,
+                    ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [

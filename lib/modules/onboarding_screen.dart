@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:spod_app/screen/main/main_screen.dart';
+import 'package:spod_app/modules/main/main_screen.dart';
 import 'package:spod_app/theme.dart';
 
 class OnboardingScreen extends StatelessWidget {
