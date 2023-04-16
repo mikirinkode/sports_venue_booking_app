@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spod_app/model/sport_field.dart';
-import 'package:spod_app/modules/detail/detail_screen.dart';
+import 'package:spod_app/modules/detail/detail_venue_view.dart';
 import 'package:spod_app/theme.dart';
 
 
@@ -17,7 +17,7 @@ class SportFieldList extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         onTap: (){
           Navigator.push(context, MaterialPageRoute(builder: (context){
-            return DetailScreen(field: field,);
+            return DetailView(field: field,);
           }));
         },
         child: Container(

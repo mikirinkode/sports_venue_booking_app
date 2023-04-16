@@ -7,17 +7,17 @@ import '../theme.dart';
 import '../utils/dummy_data.dart';
 import '../components/sport_field_list.dart';
 
-class SearchScreen extends StatefulWidget {
+class SearchView extends StatefulWidget {
   String selectedDropdownItem;
   List<SportField> fieldList = sportFieldList;
 
-  SearchScreen({required this.selectedDropdownItem});
+  SearchView({required this.selectedDropdownItem});
 
   @override
-  State<SearchScreen> createState() => _SearchScreenState();
+  State<SearchView> createState() => _SearchViewState();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
+class _SearchViewState extends State<SearchView> {
   String _query = "";
   String _selectedDropdownItem = "All";
   List<SportField> _fieldList = [];

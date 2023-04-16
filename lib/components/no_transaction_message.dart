@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../modules/search_screen.dart';
+import '../modules/search_view.dart';
 import '../theme.dart';
 
 class NoTranscationMessage extends StatelessWidget {
@@ -41,7 +41,7 @@ class NoTranscationMessage extends StatelessWidget {
               TextButton.icon(
                   onPressed: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return SearchScreen(selectedDropdownItem: "",);
+                      return SearchView(selectedDropdownItem: "",);
                     }));
                   },
                   icon: const Icon(Icons.search),

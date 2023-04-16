@@ -2,15 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spod_app/model/sport_field.dart';
-import 'package:spod_app/modules/detail/checkout_screen.dart';
+import 'package:spod_app/modules/detail/checkout_view.dart';
 import 'package:spod_app/theme.dart';
 import 'package:spod_app/components/facility_card.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailView extends StatelessWidget {
   SportField field;
 
-  DetailScreen({required this.field});
+  DetailView({required this.field});
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +199,7 @@ class DetailScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(borderRadiusSize))),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return CheckoutScreen(
+                return CheckoutView(
                   field: field,
                 );
               }));

@@ -4,7 +4,7 @@ import 'package:spod_app/utils/dummy_data.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../theme.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

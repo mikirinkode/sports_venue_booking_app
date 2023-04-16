@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spod_app/model/sport_field.dart';
-import 'package:spod_app/modules/search_screen.dart';
+import 'package:spod_app/modules/search_view.dart';
 import 'package:spod_app/theme.dart';
 import 'package:spod_app/utils/dummy_data.dart';
 import 'package:spod_app/components/category_card.dart';
 import 'package:spod_app/components/sport_field_card.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeView extends StatelessWidget {
   List<SportField> fieldList = recommendedSportField;
 
   @override
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return SearchScreen(
+                              return SearchView(
                                 selectedDropdownItem: "All",
                               );
                             }));
@@ -120,7 +120,7 @@ class HomeScreen extends StatelessWidget {
               child: IconButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return SearchScreen(
+                    return SearchView(
                       selectedDropdownItem: "",
                     );
                   }));
