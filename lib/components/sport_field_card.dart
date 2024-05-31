@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../model/sport_field.dart';
-import '../screen/detail/detail_screen.dart';
+import '../modules/detail/detail_venue_view.dart';
 import '../theme.dart';
 
 class SportFieldCard extends StatelessWidget {
@@ -18,7 +18,7 @@ class SportFieldCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return DetailScreen(field: field,);
+            return DetailView(field: field,);
           }));
         },
         child: Container(

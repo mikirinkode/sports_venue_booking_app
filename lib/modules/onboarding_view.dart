@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:spod_app/screen/main/main_screen.dart';
+import 'package:spod_app/modules/root/root_view.dart';
 import 'package:spod_app/theme.dart';
 
-class OnboardingScreen extends StatelessWidget {
+class OnboardingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration.zero, () => showWelcomeDialog(context));
@@ -58,7 +58,7 @@ class OnboardingScreen extends StatelessWidget {
             final prefs = await SharedPreferences.getInstance();
             await prefs.setBool("skipOnBoarding", true);
             Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) {
-              return MainScreen(
+              return RootView(
                 currentScreen: 0,
               );
             }));

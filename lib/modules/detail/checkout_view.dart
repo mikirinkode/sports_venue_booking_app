@@ -4,20 +4,20 @@ import 'package:intl/intl.dart';
 import 'package:spod_app/model/checkbox_state.dart';
 import 'package:spod_app/model/field_order.dart';
 import 'package:spod_app/model/sport_field.dart';
-import 'package:spod_app/screen/main/main_screen.dart';
+import 'package:spod_app/modules/root/root_view.dart';
 import 'package:spod_app/theme.dart';
 import 'package:spod_app/utils/dummy_data.dart';
 
-class CheckoutScreen extends StatefulWidget {
+class CheckoutView extends StatefulWidget {
   SportField field;
 
-  CheckoutScreen({required this.field});
+  CheckoutView({required this.field});
 
   @override
-  State<CheckoutScreen> createState() => _CheckoutScreenState();
+  State<CheckoutView> createState() => _CheckoutViewState();
 }
 
-class _CheckoutScreenState extends State<CheckoutScreen> {
+class _CheckoutViewState extends State<CheckoutView> {
   final TextEditingController _controller = TextEditingController();
   DateTime _dateTime = DateTime.now();
   final dateFormat = DateFormat("EEEE, dd MMM yyyy");
@@ -220,7 +220,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      MainScreen(currentScreen: 1)),
+                                      RootView(currentScreen: 1)),
                               (route) => false);
                           _showSnackBar(
                               context, "Successfully create an order");

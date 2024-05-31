@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:spod_app/model/field_order.dart';
 import 'package:spod_app/theme.dart';
 import 'package:spod_app/utils/dummy_data.dart';
-import 'package:spod_app/widget/no_transaction_message.dart';
+import 'package:spod_app/components/no_transaction_message.dart';
 
-class OrderScreen extends StatelessWidget {
+class OrderView extends StatelessWidget {
   List<FieldOrder> fieldOrderList = dummyUserOrderList;
 
   @override

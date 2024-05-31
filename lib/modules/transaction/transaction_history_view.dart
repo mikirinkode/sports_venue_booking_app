@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:spod_app/screen/main/transaction/history_screen.dart';
-import 'package:spod_app/screen/main/transaction/order_screen.dart';
+import 'package:spod_app/modules/transaction/history_view.dart';
+import 'package:spod_app/modules/transaction/order_view.dart';
 import 'package:spod_app/theme.dart';
 
-class TransactionHistoryScreen extends StatefulWidget {
+class TransactionHistoryView extends StatefulWidget {
   @override
-  State<TransactionHistoryScreen> createState() =>
-      _TransactionHistoryScreenState();
+  State<TransactionHistoryView> createState() =>
+      _TransactionHistoryViewState();
 }
 
-class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
+class _TransactionHistoryViewState extends State<TransactionHistoryView>
     with TickerProviderStateMixin {
   late TabController _tabController;
 
@@ -51,8 +51,8 @@ class _TransactionHistoryScreenState extends State<TransactionHistoryScreen>
       body: TabBarView(
         controller: _tabController,
         children: [
-          OrderScreen(),
-          HistoryScreen(),
+          OrderView(),
+          HistoryView(),
         ],
       ),
     );

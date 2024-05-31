@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:spod_app/screen/main/home/home_screen.dart';
-import 'package:spod_app/screen/main/setting/settings_screen.dart';
-import 'package:spod_app/screen/main/transaction/transaction_history_screen.dart';
+import 'package:spod_app/modules/home/home_view.dart';
+import 'package:spod_app/modules/setting/settings_view.dart';
+import 'package:spod_app/modules/transaction/transaction_history_view.dart';
 import 'package:spod_app/theme.dart';
 
-class MainScreen extends StatefulWidget {
+class RootView extends StatefulWidget {
   int currentScreen = 0;
 
-  MainScreen({required this.currentScreen});
+  RootView({required this.currentScreen});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<RootView> createState() => _RootViewState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _RootViewState extends State<RootView> {
   int _currentIndex = 0;
   final screens = [
-    HomeScreen(),
-    TransactionHistoryScreen(),
-    SettingsScreen(),
+    HomeView(),
+    TransactionHistoryView(),
+    SettingsView(),
   ];
 
   @override
