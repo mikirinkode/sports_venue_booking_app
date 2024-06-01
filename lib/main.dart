@@ -24,8 +24,9 @@ class MyApp extends StatelessWidget {
       title: 'Spod',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: createMaterialColor(primaryColor500),
-          canvasColor: colorWhite),
+        primaryColor: primaryColor500,
+        useMaterial3: false,
+      ),
       home: skipOnBoarding? RootView(currentScreen: 0): OnboardingView(),
     );
   }
