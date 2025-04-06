@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../modules/search_view.dart';
+import '../modules/search/search_view.dart';
 import '../theme.dart';
 
 class NoTranscationMessage extends StatelessWidget {

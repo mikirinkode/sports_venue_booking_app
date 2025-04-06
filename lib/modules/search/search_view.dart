@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../model/sport_field.dart';
-import '../theme.dart';
-import '../utils/dummy_data.dart';
-import '../components/sport_field_list.dart';
+import '../../model/sport_field.dart';
+import '../../theme.dart';
+import '../../utils/dummy_data.dart';
+import '../../components/sport_field_list.dart';
 
 class SearchView extends StatefulWidget {
   String selectedDropdownItem;

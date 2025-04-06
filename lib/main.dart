@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spod_app/modules/root/root_view.dart';
-import 'package:spod_app/modules/onboarding_view.dart';
+import 'package:spod_app/modules/onboarding/onboarding_view.dart';
 import 'package:spod_app/theme.dart';
 
 Future<void> main() async {
