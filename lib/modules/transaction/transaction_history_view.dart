@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spod_app/modules/transaction/history_view.dart';
-import 'package:spod_app/modules/transaction/order_view.dart';
+import 'package:spod_app/modules/transaction/tab_history_view.dart';
+import 'package:spod_app/modules/transaction/tab_order_view.dart';
 import 'package:spod_app/theme.dart';
 
 class TransactionHistoryView extends StatefulWidget {
@@ -52,7 +52,7 @@ class _TransactionHistoryViewState extends State<TransactionHistoryView>
         controller: _tabController,
         children: [
           OrderView(),
-          HistoryView(),
+          TabHistoryView(),
         ],
       ),
     );
