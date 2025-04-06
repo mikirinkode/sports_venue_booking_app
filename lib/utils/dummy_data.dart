@@ -253,3 +253,27 @@ List<String> timeToBook = [
   "22.00",
   "23.00"
 ];
+
+class AvailableTime {
+  final String time;
+  final bool isAvailable;
+
+  AvailableTime({required this.time, required this.isAvailable});
+}
+
+List<AvailableTime> availableTimeList = [
+  AvailableTime(time: "09:00", isAvailable: false),
+  AvailableTime(time: "10:00", isAvailable: true),
+  AvailableTime(time: "11:00", isAvailable: true),
+  AvailableTime(time: "12:00", isAvailable: true),
+  AvailableTime(time: "13:00", isAvailable: true),
+  AvailableTime(time: "14:00", isAvailable: true),
+  AvailableTime(time: "15:00", isAvailable: false),
+  AvailableTime(time: "16:00", isAvailable: false),
+  AvailableTime(time: "17:00", isAvailable: true),
+  AvailableTime(time: "18:00", isAvailable: true),
+  AvailableTime(time: "19:00", isAvailable: true),
+  AvailableTime(time: "20:00", isAvailable: true),
+  AvailableTime(time: "21:00", isAvailable: true),
+  AvailableTime(time: "22:00", isAvailable: true),
+];

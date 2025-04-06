@@ -13,6 +13,12 @@ const Color darkBlue300 = Color(0xff526983);
 const Color darkBlue500 = Color(0xff293948);
 const Color darkBlue700 = Color(0xff17212B);
 
+const neutral50 = Color(0xFFEEF0F4);
+const neutral200 = Color(0xFFB1BACC);
+const neutral400 = Color(0xFF7786A7);
+const neutral500 = Color(0xFF556891);
+const neutral700 = Color(0xFF3C4A67);
+
 const double borderRadiusSize = 16.0;
 
 TextStyle greetingTextStyle = GoogleFonts.poppins(
@@ -24,9 +30,7 @@ TextStyle titleTextStyle = GoogleFonts.poppins(
 TextStyle subTitleTextStyle = GoogleFonts.poppins(
     fontSize: 16, fontWeight: FontWeight.w500, color: darkBlue500);
 
-TextStyle normalTextStyle = GoogleFonts.poppins(
-  color: darkBlue500
-);
+TextStyle normalTextStyle = GoogleFonts.poppins(color: darkBlue500);
 
 TextStyle descTextStyle = GoogleFonts.poppins(
     fontSize: 14, fontWeight: FontWeight.w400, color: darkBlue300);
@@ -46,9 +50,8 @@ TextStyle buttonTextStyle = GoogleFonts.poppins(
 TextStyle bottomNavTextStyle = GoogleFonts.poppins(
     fontSize: 12, fontWeight: FontWeight.w500, color: primaryColor500);
 
-TextStyle tabBarTextStyle = GoogleFonts.poppins(
-     fontWeight: FontWeight.w500, color: primaryColor500);
-
+TextStyle tabBarTextStyle =
+    GoogleFonts.poppins(fontWeight: FontWeight.w500, color: primaryColor500);
 
 MaterialColor createMaterialColor(Color color) {
   List strengths = <double>[.05];

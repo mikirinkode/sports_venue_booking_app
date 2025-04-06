@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spod_app/model/sport_field.dart';
-import 'package:spod_app/modules/detail/checkout_view.dart';
+import 'package:spod_app/modules/booking/booking_view.dart';
 import 'package:spod_app/theme.dart';
 import 'package:spod_app/components/facility_card.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -199,7 +199,7 @@ class DetailView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(borderRadiusSize))),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return CheckoutView(
+                return BookingView(
                   field: field,
                 );
               }));
