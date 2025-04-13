@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:spod_app/theme.dart';
 import 'package:spod_app/components/no_transaction_message.dart';
 
-class HistoryView extends StatelessWidget {
-  const HistoryView({Key? key}) : super(key: key);
+class TabHistoryView extends StatelessWidget {
+  const TabHistoryView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

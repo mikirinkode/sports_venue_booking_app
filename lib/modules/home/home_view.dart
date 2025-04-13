@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spod_app/model/sport_field.dart';
-import 'package:spod_app/modules/search_view.dart';
+import 'package:spod_app/modules/search/search_view.dart';
 import 'package:spod_app/theme.dart';
 import 'package:spod_app/utils/dummy_data.dart';
 import 'package:spod_app/components/category_card.dart';
